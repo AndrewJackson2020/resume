@@ -1,0 +1,77 @@
+
+% possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,a4paper,sans]{moderncv}  
+
+\input{resume/variables.tex}
+\moderncvstyle{banking} % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue} % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+
+% Adjust margins
+\usepackage[scale=0.85]{geometry}
+\setlength{\footskip}{149.60005pt}
+
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \setmathfont{Latin Modern Math}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+\usepackage[english]{babel}  
+
+\name{Andrew}{Jackson}
+\address{\homeTownVar, IL \homeZipCodeVar}{}{}
+\phone[mobile]{\phoneVar}  
+\email{andrewjackson2988@gmail.com}
+\social[github]{AndrewJackson2020}
+\social[linkedin]{andrew-jackson-410aab4b}
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+\begin{document}
+\makecvtitle
+
+\section{Experience}
+\cventry{2022--Present}{Lead Developer}{Enfusion}{Chicago, IL}{}{}
+\begin{itemize}
+\item Led the creation of the software development team in the analytics department
+\item Mentored software development and business analyst teams in Python and software development 
+\item Architected analytics infrastructure on Google Cloud using Terraform and Docker to ensure reproducible software execution environments
+\item Enhanced analytics capabilities by creating infrastructure for secured access between an AWS hosted BI tool and a GCP hosted REST API to deliver Python based application logic to replace legacy SQL code
+\item Facilitated fast and consistent database deployments across client environments by writing CLI in Go that leveraged Terraform
+\end{itemize}
+\vspace{5mm}
+
+\cventry{2018--2022}{Python Developer}{Invesco}{Downers Grove, IL}{}{}
+\begin{itemize}
+\item Developed R application to optimize portfolios and generate reporting and controls around rebalances. This was an end-to-end project that fully automated the error prone, manual, legacy processes that lacked necessary oversight and quality control. Currently used to manage ~5\% of the entire Invesco Equity indexed strategy fund lineup
+\item Built processes to automatically validate index files received from providers to ensure that index holdings comply with the index methodology. This required building a generalized framework to allow programming hundreds of custom rules for the large variety of indexes.
+\item Built end-to-end data warehouse, reporting, and analytics application to facilitate user presentation for hundreds of data sources all with varying schemas and import ETL pipelines
+\item Built dashboard to provide comprehensive reporting, analytics, and oversight around index rebalances
+\end{itemize}
+\vspace{5mm}
+
+\cventry{2017--2018}{Technology Consultant}{Northern Trust}{Chicago, IL}{}{}
+\begin{itemize}
+\item Developed software tool utilizing a database backend to track and record Chicago pricing team's activities throughout the day which is used by audit to ensure SLA adherence and timely task completion
+\item Wrote SQL queries, performed testing (unit, system, and UI), and wrote out test cases for the rollout of new SQL Server based global pricing database to replace the legacy system
+\item Automated various securities pricing business processes by creating and modifying VBA programs for Chicago, Bangalore, Ireland, and Manila pricing teams
+\item Improved departmental software by adding functionality to allow for mass retention of data using MS Access to facilitate ad hoc queries
+\end{itemize}
+
+\section{Education}
+\cventry{2024 (expected)}{Master of Science in Computer Science}{Georgia Institute of Technology}{Atlanta}{}{}
+\cventry{2014}{Bachelor of Science}{Northern Illinois University}{DeKalb}{}{}
+
+\section{Skills}
+\cvitem{\textbf{Backend}}{Python, R, Go, Rust, C++, Java, MIPS Assembly}
+\cvdoubleitem{\textbf{Frontend}}{JavaScript, TypeScript}{\textbf{DevOps}}{Git, Docker, Kubernetes}
+\cvdoubleitem{\textbf{OS}}{Windows, Debian, Alpine, ArchLinux}{\textbf{Cloud}}{GCP, AWS, Heroku}
+\cvdoubleitem{\textbf{Databases}}{BigQuery, Postgres, MySQL, SQLite}{\textbf{Build}}{CloudBuild, Jenkins}
+
+\end{document}

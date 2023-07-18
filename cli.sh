@@ -4,8 +4,8 @@ cli_help () {
 	echo "
 CLI designed to facilitate resume creation.
 
-Available commandss:
-    build_resume
+Available commands:
+    --build_resume | -b
 "
 }
 
@@ -14,7 +14,6 @@ build_resume () {
 
 	latexmk \
 		-aux-directory="temp_latex_files" \
-		-output-directory="resume" \
 		-pdf \
 		./resume.tex
 

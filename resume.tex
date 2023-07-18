@@ -3,11 +3,14 @@
 \documentclass[11pt,a4paper,sans]{moderncv}  
 
 \input{variables.tex}
+\input{secrets.tex}
 \moderncvstyle{banking} % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvcolor{blue} % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
 
+\newcommand{\financial}{financial}
+
 % Adjust margins
-\usepackage[scale=0.88]{geometry}
+\usepackage[scale=0.90]{geometry}
 \setlength{\footskip}{149.60005pt}
 
 \ifxetexorluatex
@@ -50,9 +53,10 @@
 
 	\cventry{2018--2022}{Python Developer}{Invesco}{Downers Grove, IL}{}{}
 	\begin{itemize}
-		\item Developed R application to optimize portfolios and generate reporting and controls around rebalances which was used to manage ~5\% of the Invesco Equity indexed strategy fund lineup
+		\item Developed R application utilizing the Axioma Portfolio Optimizer API to optimize portfolios and generate reporting and controls around rebalances which was 
+			used to manage 5\% of the Invesco Equity indexed strategy fund lineup
 		\item Wrote Python processes to automatically validate index files received from providers to ensure that index holdings comply with the index methodology
-		\item Designed data warehouse, reporting, and analytics application in Python to integrate hundreds of data sources all with varying schemas and ETL pipelines
+		\item Designed data warehouse, reporting, and analytics application in Python to integrate index file data, fund position data, as well as market data from the Bloomberg and Factset
 		\item Built dashboard using Python to provide comprehensive reporting, analytics, and oversight around index rebalances
 	\end{itemize}
 	\vspace{5mm}
@@ -60,7 +64,10 @@
 	\begin{itemize}
 		\item Developed software tool utilizing a database backend to track and record Chicago pricing team's activities throughout the day which is used by audit to ensure SLA adherence and timely task completion
 		\item Wrote SQL queries, performed testing (unit, system, and UI), and wrote out test cases for the rollout of new SQL Server based global securties pricing database to replace the legacy system
-		\item Automated various securities pricing business processes by creating and modifying applications for Chicago, Bangalore, Ireland, and Manila pricing teams
+		\item Automated various securities pricing business processes by creating applications for Chicago, Bangalore, Ireland, and Manila pricing teams
+		\ifx\resumeType\financial
+			\item Utilized financial data from the Bloomberg API in applications designed to validate security prices
+		\fi
 	\end{itemize}
 
 	\section{Education}
@@ -68,13 +75,11 @@
 	\cventry{2014}{Bachelor of Science}{Northern Illinois University}{DeKalb}{}{}
 
 	\section{Skills}
-	\if{\resumeType}{financial}
-		\cvdoubleitem{\textbf{Backend}}{Python, R, Go, Rust, C++, Java}{\textbf{Financial}}{Bloomberg Terminal/API, FactSet, Axioma Portfolio Optimizer}
-	\else
-		\cvitem{\textbf{Backend}}{Python, R, Go, Rust, C++, Java}
+	\ifx\resumeType\financial
+		\cvitem{\textbf{Finance}}{Bloomberg Terminal/API, FactSet, Axioma Portfolio Optimizer}
 	\fi
-	\cvdoubleitem{\textbf{Frontend}}{JavaScript, TypeScript}{\textbf{DevOps}}{Git, Docker, Kubernetes}
+	\cvdoubleitem{\textbf{Frontend}}{Python, R, Go, Rust, C++, Java}{\textbf{Backend}}{JavaScript, TypeScript}
 	\cvdoubleitem{\textbf{OS}}{Windows, Debian, Alpine, ArchLinux}{\textbf{Cloud}}{GCP, AWS, Heroku}
 	\cvdoubleitem{\textbf{Databases}}{BigQuery, Postgres, MySQL, SQLite}{\textbf{Build}}{CloudBuild, Jenkins}
-
+	\cvitem{\textbf{DevOps}}{Git, Docker, Kubernetes}
 \end{document}

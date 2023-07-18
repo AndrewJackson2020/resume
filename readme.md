@@ -9,7 +9,7 @@ I use LaTeX and more specifically the ModernCV package to do much of the heavy l
 
 Ignore changes to variables file (contains PII)
 ```bash
-git update-index --assume-unchanged variables.tex
+git update-index --assume-unchanged secrets.tex
 ```
 
 ## Future development

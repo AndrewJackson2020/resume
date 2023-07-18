@@ -14,5 +14,4 @@ git update-index --assume-unchanged secrets.tex
 
 ## Future development
 - Possibly to create personal website and add to resume
-- Dockerize
 

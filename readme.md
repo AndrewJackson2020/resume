@@ -12,22 +12,6 @@ Ignore changes to variables file (contains PII)
 git update-index --assume-unchanged variables.tex
 ```
 
-Command to compile PDF resume from LaTeX configuration.
-```bash
-./cli.sh build_resume
-```
-
-Run in Docker container
-```bash
-sudo docker build \
-    --tag resume \
-    .
-sudo docker run \
-    -it \
-    --volume $(pwd):/root/resume \
-   resume  
-```
-
 ## Future development
 - Possibly to create personal website and add to resume
 - Dockerize

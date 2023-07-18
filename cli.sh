@@ -6,7 +6,21 @@ CLI designed to facilitate resume creation.
 
 Available commands:
     --build_resume | -b
+	--build_resume_doocker | -bd
 "
+}
+
+
+build_resume_docker () {
+
+	sudo docker build \
+		--tag resume \
+		.
+
+	sudo docker run \
+		-it \
+		--volume $(pwd):/root/resume \
+	   resume  
 }
 
 
@@ -26,6 +40,10 @@ cli () {
 
 		--build_resume | -b)    
 			build_resume 			
+			;;
+
+		--build_resume_docker | -bd)
+			build_resume_docker 
 			;;
 
 		--help | -h)

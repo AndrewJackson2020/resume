@@ -16,7 +16,7 @@ build_resume () {
 		-aux-directory="temp_latex_files" \
 		-output-directory="resume" \
 		-pdf \
-		./resume/resume.tex
+		./resume.tex
 
 	rm -r temp_latex_files
 }

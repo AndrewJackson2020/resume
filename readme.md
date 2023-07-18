@@ -23,9 +23,9 @@ sudo docker build \
     --tag resume \
     .
 sudo docker run \
+    -it \
     --volume $(pwd):/root/resume \
    resume  
-docker exec -it d2 /bin/bash
 ```
 
 ## Future development

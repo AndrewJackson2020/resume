@@ -7,6 +7,11 @@ I use LaTeX and more specifically the ModernCV package to do much of the heavy l
 
 ## How to use
 
+Ignore changes to variables file (contains PII)
+```bash
+git update-index --assume-unchanged variables.tex
+```
+
 Command to compile PDF resume from LaTeX configuration.
 ```bash
 ./cli.sh build_resume

@@ -33,43 +33,48 @@
 \social[github]{AndrewJackson2020}
 \social[linkedin]{andrew-jackson-410aab4b}
 \renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+
 \begin{document}
-\makecvtitle
+	\makecvtitle
 
-\section{Experience}
-\cventry{2022--Present}{Lead Developer}{Enfusion}{Chicago, IL}{}{}
-\begin{itemize}
-\item Led the creation of a software development team with the goal of increasing scalability of the analytics product line
-\item Trained analytics team members in Python programming and software development best practices
-\item Architected infrastructure on Google Cloud using Terraform and Docker to ensure reproducible software execution environments with dev/prod parity
-\item Enabled cleanup of legacy SQL codebase by introducing Python based application layer delivered via REST API hosted on GCP and securely consumed by AWS based BI application
-\item Facilitated fast and consistent database deployments across client environments by writing CLI in Go that leveraged Terraform
-\end{itemize}
-\vspace{5mm}
+	\section{Experience}
+	\cventry{2022--Present}{Lead Developer}{Enfusion}{Chicago, IL}{}{}
+	\begin{itemize}
+		\item Led the creation of a software development team with the goal of increasing scalability of the analytics product line
+		\item Trained analytics team members in Python programming and software development best practices
+		\item Architected infrastructure on Google Cloud using Terraform and Docker to ensure reproducible software execution environments with dev/prod parity
+		\item Enabled cleanup of legacy SQL codebase by introducing Python based application layer delivered via REST API hosted on GCP and securely consumed by AWS based BI application
+		\item Facilitated fast and consistent database deployments across client environments by writing CLI in Go that leveraged Terraform
+	\end{itemize}
+	\vspace{5mm}
 
-\cventry{2018--2022}{Python Developer}{Invesco}{Downers Grove, IL}{}{}
-\begin{itemize}
-\item Developed R application to optimize portfolios and generate reporting and controls around rebalances which was used to manage ~5\% of the Invesco Equity indexed strategy fund lineup
-\item Wrote Python processes to automatically validate index files received from providers to ensure that index holdings comply with the index methodology
-\item Designed data warehouse, reporting, and analytics application in Python to integrate hundreds of data sources all with varying schemas and ETL pipelines
-\item Built dashboard using Python to provide comprehensive reporting, analytics, and oversight around index rebalances
-\end{itemize}
-\vspace{5mm}
-\cventry{2017--2018}{Technology Consultant}{Northern Trust}{Chicago, IL}{}{}
-\begin{itemize}
-\item Developed software tool utilizing a database backend to track and record Chicago pricing team's activities throughout the day which is used by audit to ensure SLA adherence and timely task completion
-\item Wrote SQL queries, performed testing (unit, system, and UI), and wrote out test cases for the rollout of new SQL Server based global securties pricing database to replace the legacy system
-\item Automated various securities pricing business processes by creating and modifying applications for Chicago, Bangalore, Ireland, and Manila pricing teams
-\end{itemize}
+	\cventry{2018--2022}{Python Developer}{Invesco}{Downers Grove, IL}{}{}
+	\begin{itemize}
+		\item Developed R application to optimize portfolios and generate reporting and controls around rebalances which was used to manage ~5\% of the Invesco Equity indexed strategy fund lineup
+		\item Wrote Python processes to automatically validate index files received from providers to ensure that index holdings comply with the index methodology
+		\item Designed data warehouse, reporting, and analytics application in Python to integrate hundreds of data sources all with varying schemas and ETL pipelines
+		\item Built dashboard using Python to provide comprehensive reporting, analytics, and oversight around index rebalances
+	\end{itemize}
+	\vspace{5mm}
+	\cventry{2017--2018}{Technology Consultant}{Northern Trust}{Chicago, IL}{}{}
+	\begin{itemize}
+		\item Developed software tool utilizing a database backend to track and record Chicago pricing team's activities throughout the day which is used by audit to ensure SLA adherence and timely task completion
+		\item Wrote SQL queries, performed testing (unit, system, and UI), and wrote out test cases for the rollout of new SQL Server based global securties pricing database to replace the legacy system
+		\item Automated various securities pricing business processes by creating and modifying applications for Chicago, Bangalore, Ireland, and Manila pricing teams
+	\end{itemize}
 
-\section{Education}
-\cventry{2024 (expected)}{Master of Science in Computer Science}{Georgia Institute of Technology}{Atlanta}{}{}
-\cventry{2014}{Bachelor of Science}{Northern Illinois University}{DeKalb}{}{}
+	\section{Education}
+	\cventry{2024 (expected)}{Master of Science in Computer Science}{Georgia Institute of Technology}{Atlanta}{}{}
+	\cventry{2014}{Bachelor of Science}{Northern Illinois University}{DeKalb}{}{}
 
-\section{Skills}
-\cvitem{\textbf{Backend}}{Python, R, Go, Rust, C++, Java, MIPS Assembly}
-\cvdoubleitem{\textbf{Frontend}}{JavaScript, TypeScript}{\textbf{DevOps}}{Git, Docker, Kubernetes}
-\cvdoubleitem{\textbf{OS}}{Windows, Debian, Alpine, ArchLinux}{\textbf{Cloud}}{GCP, AWS, Heroku}
-\cvdoubleitem{\textbf{Databases}}{BigQuery, Postgres, MySQL, SQLite}{\textbf{Build}}{CloudBuild, Jenkins}
+	\section{Skills}
+	\if{\resumeType}{financial}
+		\cvdoubleitem{\textbf{Backend}}{Python, R, Go, Rust, C++, Java}{\textbf{Financial}}{Bloomberg Terminal/API, FactSet, Axioma Portfolio Optimizer}
+	\else
+		\cvitem{\textbf{Backend}}{Python, R, Go, Rust, C++, Java}
+	\fi
+	\cvdoubleitem{\textbf{Frontend}}{JavaScript, TypeScript}{\textbf{DevOps}}{Git, Docker, Kubernetes}
+	\cvdoubleitem{\textbf{OS}}{Windows, Debian, Alpine, ArchLinux}{\textbf{Cloud}}{GCP, AWS, Heroku}
+	\cvdoubleitem{\textbf{Databases}}{BigQuery, Postgres, MySQL, SQLite}{\textbf{Build}}{CloudBuild, Jenkins}
 
 \end{document}

@@ -26,12 +26,10 @@ build_resume_docker () {
 
 build_resume () {
 
-	latexmk \
-		-aux-directory="temp_latex_files" \
-		-pdf \
-		./resume.tex
+	pdflatex \
+		-output-dir "output" \
+		"\\def\\whatever{financial}  \\input{resume.tex}"
 
-	rm -r temp_latex_files
 }
 
 
@@ -40,6 +38,7 @@ cli () {
 
 		--build_resume | -b)    
 			build_resume 			
+			# build_resume_pdf 
 			;;
 
 		--build_resume_docker | -bd)

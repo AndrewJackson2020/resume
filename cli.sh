@@ -5,8 +5,8 @@ cli_help () {
 CLI designed to facilitate resume creation.
 
 Available commands:
-    --build_resume | -b
-	--build_resume_doocker | -bd
+    build_resume
+	build_resume_doocker
 "
 }
 
@@ -40,17 +40,24 @@ build_resume () {
 			-c=*|--city=*)
 				city="${i#*=}"
 				;;
-			-z=*|--z=*)
+			-z=*|--zip_code=*)
 				zip_code="${i#*=}"
 				;;
 			-*|--*)
+				echo "unrecognized argument: $i"
 				exit 1
 				;;
 			*)
+				echo "unrecognized argument: $i"
 				exit 1
 				;;
 		esac
 	done
+	if [ $resume_type != 'financial' ]  &&  [ $resume_type != 'software' ]
+	then
+		echo "invalid resume_type variable passed"
+		exit
+	fi
 
 	mkdir --parents ./temp
 	rm ./variables.tex

@@ -1,11 +1,9 @@
 % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 \documentclass[11pt,a4paper,sans]{moderncv}  
 
-\input{variables.tex}
+% \input{variables.tex}
 \moderncvstyle{banking} % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvcolor{blue} % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
-
-\newcommand{\financial}{financial}
 
 % Adjust margins
 \usepackage[scale=0.90]{geometry}
@@ -28,57 +26,100 @@
 \usepackage[english]{babel}  
 
 \name{Andrew}{Jackson}
-\address{\homeTownVar, IL \homeZipCodeVar}{}{}
-\phone[mobile]{\phoneVar}  
-\email{andrewjackson2988@gmail.com}
+\address{Forest Park, IL 60130}{}{}
+\phone[mobile]{1(847)380-0864}  
+\email{AndrewJackson2988@gmail.com}
 \social[github]{AndrewJackson2020}
 \social[linkedin]{andrew-jackson-410aab4b}
 \renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
 
 \begin{document}
 	\makecvtitle
-
 	\section{Experience}
-	\cventry{2022--Present}{Lead Software Engineer}{Enfusion}{Chicago, IL}{}{}
-	\begin{itemize}
-		\item Led the creation of a software development team with the goal of increasing scalability of the analytics product line
-		\item Trained analytics team members in Python programming and software development best practices
-		\item Architected infrastructure on Google Cloud using Terraform and Docker to ensure reproducible software execution environments with dev/prod parity
-		\item Enabled cleanup of legacy SQL codebase by introducing Python based application layer delivered via REST API hosted on GCP and securely consumed by AWS based BI application
-		\item Facilitated fast and consistent database deployments across client environments by writing CLI in Go that leveraged Terraform
-	\end{itemize}
-	\vspace{5mm}
+	
+		
+		\cventry{2022--Present}{Enfusion}{Lead Software Engineer}{}{}{}
+		\begin{itemize}
+			
+				\item Led the creation of a software development team with the goal of increasing scalability of  the analytics product line
 
-	\cventry{2018--2022}{Software Engineer}{Invesco}{Downers Grove, IL}{}{}
-	\begin{itemize}
-		\item Developed R application utilizing the Axioma Portfolio Optimizer API to optimize portfolios and generate reporting and controls around rebalances which was 
-			used to manage 5\% of the Invesco Equity indexed strategy fund lineup
-		\item Wrote Python processes to automatically validate index files received from providers to ensure that index holdings comply with the index methodology
-		\item Designed data warehouse, reporting, and analytics application in Python to integrate index file data, fund position data, as well as market data from the Bloomberg and Factset
-		\item Built dashboard using Python to provide comprehensive reporting, analytics, and oversight around index rebalances
-	\end{itemize}
-	\vspace{5mm}
-	\cventry{2017--2018}{Business Analyst}{Northern Trust}{Chicago, IL}{}{}
-	\begin{itemize}
-		\item Developed software tool utilizing a database backend to track and record Chicago pricing team's activities throughout the day which is used by audit to ensure SLA adherence and timely task completion
-		\item Wrote SQL queries, performed testing (unit, system, and UI), and wrote out test cases for the rollout of new SQL Server based global securties pricing database to replace the legacy system
-		\item Automated various securities pricing business processes by creating applications for Chicago, Bangalore, Ireland, and Manila pricing teams
-		\ifx\resumeType\financial
-			\item Utilized financial data from the Bloomberg API in applications designed to validate security prices
-		\fi
-	\end{itemize}
+			
+				\item Trained analytics team members in Python programming and software development best practices
+
+			
+				\item Architected infrastructure on Google Cloud using Terraform and Docker to ensure  reproducible software execution environments with dev/prod parity
+
+			
+				\item Enabled cleanup of legacy SQL codebase by introducing Python based application layer delivered via  REST API hosted on GCP and securely consumed by AWS based BI application
+
+			
+				\item Facilitated fast and consistent database deployments across client environments by writing CLI  in Go that leveraged Terraform
+
+			
+		\end{itemize}
+	
+		
+			\vspace{5mm}
+		
+		\cventry{2018--2022}{Invesco}{Software Engineer}{}{}{}
+		\begin{itemize}
+			
+				\item Developed R application utilizing the Axioma Portfolio Optimizer API to optimize portfolios and  generate reporting and controls around rebalances which was used to manage 5\% of the Invesco Equity  indexed strategy fund lineup
+
+			
+				\item Wrote Python processes to automatically validate index files received from providers to ensure that  index holdings comply with the index methodology
+
+			
+				\item Designed data warehouse, reporting, and analytics application in Python to integrate index file  data, fund position data, as well as market data from the Bloomberg and Factset
+
+			
+				\item Built dashboard using Python to provide comprehensive reporting, analytics, and oversight around  index rebalances
+
+			
+		\end{itemize}
+	
+		
+			\vspace{5mm}
+		
+		\cventry{2017--2018}{Northern Trust}{Business Analyst}{}{}{}
+		\begin{itemize}
+			
+				\item Developed software tool utilizing a database backend to track and record Chicago pricing team's activities  throughout the day which is used by audit to ensure SLA adherence and timely task completion
+
+			
+				\item Wrote SQL queries, performed testing (unit, system, and UI), and wrote out test cases for the  rollout of new SQL Server based global securties pricing database to replace the legacy system
+
+			
+				\item Automated various securities pricing business processes by creating applications for Chicago, Bangalore,  Ireland, and Manila pricing teams
+
+			
+				\item Utilized financial data from the Bloomberg API in applications designed to validate security prices
+
+			
+		\end{itemize}
+	
 
 	\section{Education}
-	\cventry{2024 (expected)}{Master of Science in Computer Science}{Georgia Institute of Technology}{Atlanta, GA}{}{}
-	\cventry{2014}{Bachelor of Science in Accounting}{Northern Illinois University}{DeKalb, IL}{}{}
+	
+		\cventry{2024 (expected)}{Master of Science in Computer Science}{Georgia Institute of Technology}{Atlanta, GA}{}{}
+	
+		\cventry{2014}{Bachelor of Science in Accounting}{Northern Illinois University}{DeKalb, IL}{}{}
+	
 
 	\section{Skills}
-	\ifx\resumeType\financial
-		\cvitem{\textbf{Finance}}{Bloomberg Terminal/API, FactSet, Axioma Portfolio Optimizer}
-	\fi
-	\cvdoubleitem{\textbf{Backend}}{Python, Go, R, Java, C++}{\textbf{Frontend}}{JavaScript, TypeScript, HTML, CSS}
-	\cvdoubleitem{\textbf{OS}}{Windows, Debian, Alpine, ArchLinux}{\textbf{Cloud}}{GCP, AWS, Heroku}
-	\cvdoubleitem{\textbf{DevOps}}{Git, Docker, Kubernetes, Terraform}{\textbf{Build}}{Jenkins, CloudBuild}
-	% \cvitem{\textbf{DevOps}}{Git, Docker, Kubernetes, Terraform}
-	\cvitem{\textbf{Databases}}{BigQuery, Postgres, MySQL, SQLite, Snowflake}
+	
+		\cvitem{\textbf{Backend}}{Python, Go, R, Java, C++}
+	
+		\cvitem{\textbf{Frontend}}{JavaScript, TypeScript, HTML, CSS}
+	
+		\cvitem{\textbf{OS}}{Windows, Debian, Alpine, ArchLinux}
+	
+		\cvitem{\textbf{Cloud}}{GCP, AWS, Heroku}
+	
+		\cvitem{\textbf{DevOps}}{Git, Docker, Kubernetes, Terraform}
+	
+		\cvitem{\textbf{Build}}{Jenkins, CloudBuild}
+	
+		\cvitem{\textbf{Databases}}{BigQuery, Postgres, MySQL, SQLite, Snowflake}
+	
 \end{document}

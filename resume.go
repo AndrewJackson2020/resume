@@ -4,6 +4,8 @@ import (
 	"text/template"
 	"gopkg.in/yaml.v2"
     "log"
+	"flag"
+	"fmt"
     "io/ioutil"
 	"os"
 	"os/exec"
@@ -61,14 +63,23 @@ type resumeData struct {
 }
 
 
+var profile = flag.String("profile", "", "a string")
+
+
 func main() {
 
+    flag.Parse()	
+	if *profile == "" {
+        log.Printf("profile flag required")
+		return
+	}
 	var resumeContent content
 	var contact_info contact
 	var resume_data resumeData 
 
 	// Read content file
-	yamlFile, err := ioutil.ReadFile("./data/content.yaml")
+	profile_folder := fmt.Sprintf("./profiles/%s", *profile)
+	yamlFile, err := ioutil.ReadFile(fmt.Sprintf("%s/content.yaml", profile_folder))
     if err != nil {
         log.Printf("yamlFile.Get err   #%v ", err)
     }
@@ -79,7 +90,7 @@ func main() {
 
 	// Read content file
 	// Default to anonymous, offer parameter for live	
-	yamlFile, err = ioutil.ReadFile("./data/contact.yaml")
+	yamlFile, err = ioutil.ReadFile(fmt.Sprintf("%s/contact.yaml", profile_folder))
     if err != nil {
         log.Printf("yamlFile.Get err   #%v ", err)
     }
@@ -98,11 +109,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}	
-
-    err = os.MkdirAll("./.resume/", 0755)
+	
+	output_folder := "./.resume"
+    err = os.MkdirAll(output_folder, 0755)
 
 	var f *os.File
-	f, err = os.Create("./.resume/resume.tex")
+	tex_file := fmt.Sprintf("%s/resume.tex", output_folder)
+	f, err = os.Create(tex_file)
 	if err != nil {
 		panic(err)
 	}
@@ -116,7 +129,7 @@ func main() {
 	}
 
 	// Run latex command 	
-	cmd := exec.Command("pdflatex", "-output-dir", "./.resume", "./.resume/resume.tex")
+	cmd := exec.Command("pdflatex", "-output-dir", output_folder, tex_file)
     _, err = cmd.Output()
 
     if err != nil {
@@ -124,11 +137,12 @@ func main() {
     } 
 
 	// Move to root
-	err = os.Rename("./.resume/resume.pdf", "./resume.pdf")
+	pdf_file := "resume.pdf"
+	err = os.Rename(fmt.Sprintf("%s/%s", output_folder, pdf_file), pdf_file)
     if err != nil {
 		panic(err)
     } 
-	err = os.RemoveAll("./.resume/")
+	err = os.RemoveAll(output_folder)
     if err != nil {
 		panic(err)
     } 

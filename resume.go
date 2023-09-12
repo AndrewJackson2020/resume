@@ -6,6 +6,7 @@ import (
     "log"
     "io/ioutil"
 	"os"
+	"os/exec"
 	"strings"
 )
 
@@ -51,31 +52,61 @@ type content struct {
 	Experience []experience `yaml:"experience"`
 	SkillGroups []skillGroups `yaml:"skill_groups"`
 	Education []education `yaml:"education"`
+}
+
+
+type resumeData struct {
+	Content content
 	Contact contact
 }
 
 
 func main() {
+
 	var resumeContent content
-	    yamlFile, err := ioutil.ReadFile("content.yaml")
+	var contact_info contact
+	var resume_data resumeData 
+
+	// Read content file
+	yamlFile, err := ioutil.ReadFile("./data/content.yaml")
     if err != nil {
         log.Printf("yamlFile.Get err   #%v ", err)
     }
-     err = yaml.Unmarshal(yamlFile, &resumeContent)
-     if err != nil {
-         log.Fatalf("Unmarshal: %v", err)
-     }
+    err = yaml.Unmarshal(yamlFile, &resumeContent)
+    if err != nil {
+        log.Fatalf("Unmarshal: %v", err)
+    }
+
+	// Read content file
+	// Default to anonymous, offer parameter for live	
+	yamlFile, err = ioutil.ReadFile("./data/contact.yaml")
+    if err != nil {
+        log.Printf("yamlFile.Get err   #%v ", err)
+    }
+    err = yaml.Unmarshal(yamlFile, &contact_info)
+    if err != nil {
+        log.Fatalf("Unmarshal: %v", err)
+    }
+
+	// combine content and contact into resume_data
+	resume_data = resumeData{
+		Content: resumeContent,
+		Contact: contact_info,
+	}
 	var tmplFile = "resume.tpl.tex"
 	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
 	if err != nil {
 		panic(err)
 	}	
+
+    err = os.MkdirAll("./.resume/", 0755)
+
 	var f *os.File
-	f, err = os.Create("resume.tex")
+	f, err = os.Create("./.resume/resume.tex")
 	if err != nil {
 		panic(err)
 	}
-	err = tmpl.Execute(f, resumeContent)
+	err = tmpl.Execute(f, resume_data)
 	if err != nil {
 		panic(err)
 	}
@@ -83,4 +114,23 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	// Run latex command 	
+	cmd := exec.Command("pdflatex", "-output-dir", "./.resume", "./.resume/resume.tex")
+    _, err = cmd.Output()
+
+    if err != nil {
+		panic(err)
+    } 
+
+	// Move to root
+	err = os.Rename("./.resume/resume.pdf", "./resume.pdf")
+    if err != nil {
+		panic(err)
+    } 
+	err = os.RemoveAll("./.resume/")
+    if err != nil {
+		panic(err)
+    } 
 }
+

@@ -36,7 +36,7 @@
 \begin{document}
 	\makecvtitle
 	\section{Experience}
-	{{ range $i, $e :=  $.Experience }}
+	{{ range $i, $e :=  $.Content.Experience }}
 		{{ if $i }}
 			\vspace{5mm}
 		{{ end }}
@@ -49,12 +49,12 @@
 	{{ end }}
 
 	\section{Education}
-	{{ range .Education }}
+	{{ range .Content.Education }}
 		\cventry{ {{- .GraduationDate -}} }{ {{- .DegreeName -}} }{ {{- .InstitutionName -}}  }{ {{- .Location -}} }{}{}
 	{{ end }}
 
 	\section{Skills}
-	{{ range .SkillGroups }}
+	{{ range .Content.SkillGroups }}
 		\cvitem{\textbf{ {{- .Name -}} }}{ {{- .GetSkills -}} }
 	{{ end }}
 \end{document}

@@ -66,19 +66,12 @@ type resumeData struct {
 var profile = flag.String("profile", "", "a string")
 
 
-func main() {
+// TODO Attach to struct?
+func buildResumeData(profile_folder string) resumeData {
 
-    flag.Parse()	
-	if *profile == "" {
-        log.Printf("profile flag required")
-		return
-	}
-	var resumeContent content
 	var contact_info contact
-	var resume_data resumeData 
-
+	var resumeContent content
 	// Read content file
-	profile_folder := fmt.Sprintf("./profiles/%s", *profile)
 	yamlFile, err := ioutil.ReadFile(fmt.Sprintf("%s/content.yaml", profile_folder))
     if err != nil {
         log.Printf("yamlFile.Get err   #%v ", err)
@@ -89,7 +82,6 @@ func main() {
     }
 
 	// Read content file
-	// Default to anonymous, offer parameter for live	
 	yamlFile, err = ioutil.ReadFile(fmt.Sprintf("%s/contact.yaml", profile_folder))
     if err != nil {
         log.Printf("yamlFile.Get err   #%v ", err)
@@ -100,10 +92,116 @@ func main() {
     }
 
 	// combine content and contact into resume_data
-	resume_data = resumeData{
+	var resume_data = resumeData{
 		Content: resumeContent,
 		Contact: contact_info,
 	}
+	return resume_data
+}
+
+
+func childIfExists(parent string, child string) string {
+	value := parent
+	if child != "" {
+		value = child
+	}
+	return value 
+}
+
+
+func combineResumeData(parent resumeData, child resumeData) resumeData {
+
+	var new_experiences []experience = []experience{}
+    for i := 0; i < len(parent.Content.Experience); i++ {
+		new_experience := experience{
+			Company: childIfExists(
+				parent.Content.Experience[i].Company, 
+				child.Content.Experience[i].Company),
+			Role: childIfExists(
+				parent.Content.Experience[i].Role, 
+				child.Content.Experience[i].Role),
+			Location: childIfExists(
+				parent.Content.Experience[i].Location, 
+				child.Content.Experience[i].Location),
+			StartDate: childIfExists(
+				parent.Content.Experience[i].StartDate, 
+				child.Content.Experience[i].StartDate),
+			EndDate: childIfExists(
+				parent.Content.Experience[i].EndDate, 
+				child.Content.Experience[i].EndDate),
+			Bullets: parent.Content.Experience[i].Bullets, 
+		} 
+		
+		new_experiences = append(new_experiences, new_experience)
+    }	
+
+	var new_educations []education = []education{}
+    for i := 0; i < len(parent.Content.Education); i++ {
+		new_education := education{
+			InstitutionName:childIfExists(
+				parent.Content.Education[i].InstitutionName,
+				child.Content.Education[i].InstitutionName,
+			),
+			Location: childIfExists(
+				parent.Content.Education[i].Location,
+				child.Content.Education[i].Location,
+			),
+			DegreeName: childIfExists(
+				parent.Content.Education[i].DegreeName,
+				child.Content.Education[i].DegreeName,
+			),
+			GraduationDate: childIfExists(
+				parent.Content.Education[i].GraduationDate,
+				child.Content.Education[i].GraduationDate,
+			),
+		} 
+		
+		new_educations = append(new_educations, new_education)
+    }	
+
+
+	newResumeData := resumeData{
+
+		Content: content{
+			Experience: new_experiences,
+			SkillGroups: parent.Content.SkillGroups,
+			Education: new_educations,
+		},
+
+		Contact: contact{
+			FirstName: childIfExists(parent.Contact.FirstName, child.Contact.FirstName),
+			LastName: childIfExists(parent.Contact.LastName, child.Contact.LastName),
+			Phone: childIfExists(parent.Contact.Phone, child.Contact.Phone),
+			Address: childIfExists(parent.Contact.Address, child.Contact.Address),
+			Email: childIfExists(parent.Contact.Email, child.Contact.Email),
+			Github: childIfExists(parent.Contact.Github, child.Contact.Github),
+			Linkedin: childIfExists(parent.Contact.Linkedin, child.Contact.Linkedin),
+		},
+	}
+	return newResumeData		
+}
+
+
+func main() {
+
+    flag.Parse()	
+	if *profile == "" {
+        log.Printf("profile flag required")
+		return
+	}
+
+	base_folder := "./profiles"
+	profile_folder := fmt.Sprintf("./profiles/%s", *profile)
+
+	resume_data_base := buildResumeData(base_folder)
+	resume_data_profile := buildResumeData(profile_folder)
+//	fmt.Printf("%+v\n", resume_data_base)
+//	fmt.Printf("%+v\n", resume_data_profile)
+
+	// TODO Layer profile on top of base
+	// TODO Profile should override any conflicting fields
+	resume_data_combined := combineResumeData(resume_data_base, resume_data_profile)
+
 	var tmplFile = "resume.tpl.tex"
 	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
 	if err != nil {
@@ -119,7 +217,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	err = tmpl.Execute(f, resume_data)
+	err = tmpl.Execute(f, resume_data_combined)
 	if err != nil {
 		panic(err)
 	}

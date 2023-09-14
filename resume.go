@@ -185,22 +185,16 @@ func combineResumeData(parent resumeData, child resumeData) resumeData {
 func main() {
 
     flag.Parse()	
-	if *profile == "" {
-        log.Printf("profile flag required")
-		return
-	}
 
 	base_folder := "./profiles"
-	profile_folder := fmt.Sprintf("./profiles/%s", *profile)
 
-	resume_data_base := buildResumeData(base_folder)
-	resume_data_profile := buildResumeData(profile_folder)
-//	fmt.Printf("%+v\n", resume_data_base)
-//	fmt.Printf("%+v\n", resume_data_profile)
+	resume_data_combined := buildResumeData(base_folder)
 
-	// TODO Layer profile on top of base
-	// TODO Profile should override any conflicting fields
-	resume_data_combined := combineResumeData(resume_data_base, resume_data_profile)
+	if *profile != "" {
+		profile_folder := fmt.Sprintf("./profiles/%s", *profile)
+		resume_data_profile := buildResumeData(profile_folder)
+		resume_data_combined = combineResumeData(resume_data_profile, resume_data_profile)
+	}
 
 	var tmplFile = "resume.tpl.tex"
 	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)

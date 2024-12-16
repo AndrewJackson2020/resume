@@ -29,6 +29,21 @@
 )
 
 #resume-item[
+  - Architected firmwide database infrastructure consisting of 15 bare metal database servers
+  - Led search for institutional grade open source connection pooler
+  - Implemented an instutitutional featureset to open source connection pooling software including GSS authentication, client connection limits, and more
+  - Integrated postgres database software with Bazel, the firms build tool enabling more accurate
+    testing and faster database development
+  - Implemented scheduled backup and retention jobs for all firmwide databases
+]
+
+#resume-entry(
+  title: "Lead Software Engineer",
+  location: "Chicago, IL",
+  date: "Aug 2022 - Dec 2023",
+  description: "Enfusion",
+)
+#resume-item[
   - Led the creation of a software development team with the goal of increasing scalability ofthe analytics product line
   - Trained analytics team members in Python programming and software development best practices
   - Architected infrastructure on Google Cloud using Terraform and Docker to ensure reproducible software execution environments with dev/prod parity
@@ -38,17 +53,6 @@
 
 ]
 
-#resume-entry(
-  title: "Lead Software Engineer",
-  location: "Chicago, IL",
-  date: "Aug 2022 - Dec 2023",
-  description: "Enfusion",
-)
-
-#resume-item[
-  // content doesn't have to be bullet points
-  #lorem(72)
-]
 
 #resume-entry(
   title: "Software Engineer",
@@ -68,22 +72,22 @@
 
 #resume-entry(
   title: "Pgbouncer",
-  location: [#github-link("DeveloperPaul123/thread-pool")],
-  description: "Regular Contributor",
+  location: [#github-link("pgbouncer/pgbouncer")],
 )
 
 #resume-item[
-  - List Contributions to project
+  - Fixed critical vulnerability that allowed pgbouncer to be succeptable from DDOS attacks
+  - Implement GSS Authentication to allow SSO via active directory
+  - Implement numerous other features to make pgbouncer a more insitutional capable application
 ]
 
 #resume-entry(
   title: "Connector X",
-  location: github-link("DeveloperPaul123/eventbus"),
-  description: "Contributor",
+  location: github-link("sfu-db/connector-x"),
 )
 
 #resume-item[
-  - TODO List contribution to project
+  - Fix various issues with postgres to polars data type conversions
 ]
 
 = Skills

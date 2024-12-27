@@ -1,10 +1,59 @@
 {
-  description = "A flake for building Hello World";
+  description = "Attempted nix monorepo";
 
-  outputs = { self, nixpkgs }:
+  inputs = {
+    # NixOS official package source, using the nixos-23.11 branch here
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+
+    # Home manager
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, home-manager, ...}:
   let pkgs = nixpkgs.legacyPackages.x86_64-linux; in
 
   {
+    nixosConfigurations = {
+      nixos-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+        	./nix-os-config/hardware_configuration/desktop.nix
+          ./nix-os-config/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.andrew = import ./nix-os-config/home.nix;
+          }
+        ];
+      };
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+        	./nix-os-config/hardware_configuration/laptop.nix
+          ./nix-os-config/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.andrew = import ./nix-os-config/home.nix;
+          }
+        ];
+      };
+      nixos-hyperv-vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+        	./nix-os-config/hardware_configuration/hyperv_vm.nix
+          ./nix-os-config/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.andrew = import ./nix-os-config/home.nix;
+          }
+        ];
+      };
+    };
     apps.x86_64-linux = {
       default = let
 

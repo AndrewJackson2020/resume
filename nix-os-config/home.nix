@@ -90,6 +90,7 @@ in
      protobufc
      python3
      qbittorrent
+     gdb
      ripgrep
      rustc 
      stow

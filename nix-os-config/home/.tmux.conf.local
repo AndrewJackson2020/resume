@@ -1,10 +1,9 @@
-set-option -g default-shell /bin/zsh
-
 # : << EOF
 # https://github.com/gpakosz/.tmux
 # (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
+set-option -g default-shell '/etc/profiles/per-user/andrew/bin/zsh'
 
 
 # -- session creation ----------------------------------------------------------

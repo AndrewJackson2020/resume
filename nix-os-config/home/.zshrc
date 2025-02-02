@@ -13,9 +13,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH=$PATH:~/.config/emacs/bin/
 export PATH=$PATH:~/.local/go/bin/
+export PATH=$PATH:~/go/bin/
 
-FZF_CTRL_T_COMMAND= FZF_ALT_C_COMMAND= eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+FZF_CTRL_T_COMMAND= eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
 
 alias rm='rm -i'
@@ -25,3 +25,6 @@ alias vim='nvim'
 alias vi='nvim'
 alias ps='procs'
 alias du='dust'
+
+autoload -U compinit; compinit
+source ~/.fzf-tab/fzf-tab.plugin.zsh

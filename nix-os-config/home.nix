@@ -39,6 +39,11 @@ let
     url = "https://github.com/typst/typst/releases/download/v0.12.0/typst-x86_64-unknown-linux-musl.tar.xz";
     hash = "sha256-ta69kqJM9kyRWJxykXOM5/fP1MTRO0V+ZnFdG0nKCiI=";
   };
+  fzf_tab = pkgs.fetchgit {
+    url = "https://github.com/Aloxaf/fzf-tab.git";
+    rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
+    sha256 = "sha256-EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
+  };
   oh_my_zsh_src = pkgs.fetchgit {
     url = "https://github.com/ohmyzsh/ohmyzsh.git";
     rev = "6dfa9507ce0eb0f4d386bd03268e33943ea55c0f";
@@ -122,6 +127,7 @@ in
       {".local/bin/fzf".source = fzf_src + "/fzf";}
       {".local/bin/typst".source = typst_src + "/typst";}
       {".oh-my-zsh".source = oh_my_zsh_src;}
+      {".fzf-tab".source = fzf_tab;}
       {".old_bashrc".source = ./.bashrc;}
     ] ++ files_map);
   };
@@ -158,6 +164,8 @@ in
         pkgs.vimPlugins.nvim-web-devicons
         pkgs.vimPlugins.mason-nvim
         pkgs.vimPlugins.mason-lspconfig-nvim
+        pkgs.vimPlugins.nvim-cmp
+        pkgs.vimPlugins.cmp-nvim-lsp
       ];
     };
   };

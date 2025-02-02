@@ -75,6 +75,7 @@ in
      gcc
      gh
      git
+     graphviz
      gnumake
      htop
      jq

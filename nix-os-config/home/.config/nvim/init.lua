@@ -22,7 +22,18 @@ require("mason-lspconfig").setup {
 require 'lspconfig'.pyright.setup {}
 require 'lspconfig'.gopls.setup({})
 require 'lspconfig'.clangd.setup({ cmd = {'/etc/profiles/per-user/andrew/bin/clangd'} })
+local util = require 'lspconfig.util'
+require('lspconfig.configs').postgres_lsp = {
+  default_config = {
+    name = 'postgres_lsp',
+    cmd = { 'postgres_lsp' },
+    filetypes = { 'sql' },
+    single_file_support = true,
+    root_dir = util.root_pattern '.git',
+  },
+}
 
+require 'lspconfig'.postgres_lsp.setup { force_setup = true } 
 vim.opt.number = true
 vim.opt.relativenumber = true
 

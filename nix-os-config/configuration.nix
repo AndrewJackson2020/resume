@@ -158,6 +158,7 @@
       }
   )
   nodejs
+  postgres-lsp
   ];
 
   programs = {

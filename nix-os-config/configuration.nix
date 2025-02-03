@@ -144,7 +144,7 @@
   ((vim_configurable.override {  }).customize{
         name = "vim";
         vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-          start = [ nerdtree gruvbox coc-python ];
+          start = [ nerdtree gruvbox ];
           opt = [];
         };
         vimrcConfig.customRC = ''
@@ -157,6 +157,7 @@
         '';
       }
   )
+  rustc 
   nodejs
   ];
 

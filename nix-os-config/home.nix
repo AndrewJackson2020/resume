@@ -61,6 +61,8 @@ in
     packages = with pkgs; [
      R
      alacritty
+     clang
+     clang-tools
      ansible
      bazel_7
      black
@@ -77,7 +79,7 @@ in
      feh
      brave
      fortune
-     gcc
+     # gcc
      gh
      git
      graphviz

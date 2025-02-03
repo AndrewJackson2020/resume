@@ -21,6 +21,7 @@ require("mason-lspconfig").setup {
 }
 require 'lspconfig'.pyright.setup {}
 require 'lspconfig'.gopls.setup({})
+require 'lspconfig'.clangd.setup({ cmd = {'/etc/profiles/per-user/andrew/bin/clangd'} })
 
 vim.opt.number = true
 vim.opt.relativenumber = true

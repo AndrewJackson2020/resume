@@ -186,6 +186,9 @@ bar {
         status_command i3status
 }
 
+gaps inner 5px
+gaps outer 5px
+
 exec --no-startup-id bash -c ' \
 i3-msg "workspace 1:term; exec alacritty --command tmux;"; \
 sleep 1; \

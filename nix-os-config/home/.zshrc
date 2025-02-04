@@ -1,6 +1,3 @@
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  tmux
-fi
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(git)
 

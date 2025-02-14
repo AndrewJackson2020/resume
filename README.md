@@ -16,11 +16,12 @@ Build for VM
 sudo nixos-rebuild switch --flake ./#nixos-hyperv-vm
 ```
 
-## Install command
+## Initial Install command for new machines
 ```bash
 sudo ./install.sh
 ```
 
-## Future Development
-Create third flake profile for non nix-os machines
-
+## Initial Install command for new machines
+```bash
+nix run .#resume --impure
+```

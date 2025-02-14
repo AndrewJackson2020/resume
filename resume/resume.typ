@@ -24,15 +24,15 @@
 #resume-entry(
   title: "Database Engineer",
   location: "Chicago, IL",
-  date: "Jan 2023 - Present",
+  date: "Jan 2024 - Present",
   description: "Old Mission Capital",
 )
 
 #resume-item[
-  - Architected firmwide database infrastructure consisting of 15 bare metal database servers
+  - Architected firmwide database infrastructure consisting of 16 bare metal database servers
   - Led search for institutional grade open source connection pooler
   - Implemented an instutitutional featureset to open source connection pooling software including GSS authentication, client connection limits, and more
-  - Integrated postgres database software with Bazel, the firms build tool enabling more accurate
+  - Integrated postgres database software with Bazel, the firms build tool, enabling more accurate
     testing and faster database development
   - Implemented scheduled backup and retention jobs for all firmwide databases
 ]

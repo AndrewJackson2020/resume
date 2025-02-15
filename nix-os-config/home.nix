@@ -70,8 +70,10 @@ in
      bc
      bitwarden
      cargo 
+     clippy
      cowsay
      rustfmt
+     rust-analyzer
      delta
      du-dust
      emacs

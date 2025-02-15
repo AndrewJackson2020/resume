@@ -22,6 +22,19 @@ require("mason-lspconfig").setup {
 require 'lspconfig'.pyright.setup {}
 require 'lspconfig'.gopls.setup({})
 require 'lspconfig'.clangd.setup({ cmd = {'/etc/profiles/per-user/andrew/bin/clangd'} })
+require 'lspconfig'.rust_analyzer.setup {
+    cmd = {'/etc/profiles/per-user/andrew/bin/rust-analyzer'},
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = "clippy";
+            },
+            diagnostics = {
+                enable = true;
+            }
+        }
+    }
+}
 
 vim.opt.number = true
 vim.opt.relativenumber = true

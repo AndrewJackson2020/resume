@@ -104,7 +104,7 @@ in
      ripgrep
      rustc 
      stow
-     tldr
+     tealdeer
      tmux
      tree
      unzip

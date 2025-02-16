@@ -60,14 +60,18 @@
                          IN      NS      ns2
 
             @            IN      A       127.0.0.1
+                         IN      A       127.0.0.2
                          IN      MX      10 mail
                          IN      TXT     "v=spf1 mx"
 
             www          IN      A       127.0.0.1
+                         IN      A       127.0.0.2
 
             ns1          IN      A       127.0.0.1
+                         IN      A       127.0.0.2
 
             ns2          IN      A       127.0.0.1
+                         IN      A       127.0.0.2
           '';
         };
     };

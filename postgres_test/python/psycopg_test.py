@@ -8,7 +8,7 @@ logging.basicConfig(
 logging.getLogger("psycopg").setLevel(logging.DEBUG)
 
 # Connect to an existing database
-with psycopg.connect("postgresql://andrew@example.com/postgres?target_session_attrs=standby") as conn:
+with psycopg.connect("postgresql://andrew@whatever/postgres?target_session_attrs=standby") as conn:
 
     # Open a cursor to perform database operations
     with conn.cursor() as cur:

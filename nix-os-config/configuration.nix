@@ -21,7 +21,11 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
+  networking.extraHosts =
+    ''
+      127.0.0.1 whatever
+      127.0.0.2 whatever
+    '';
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -41,40 +45,6 @@
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-  services.bind = {
-    enable = true;
-      zones = {
-        "example.com" = {
-          master = true;
-          file = pkgs.writeText "zone-example.com" ''
-            $ORIGIN example.com.
-            $TTL    1h
-            @            IN      SOA     ns1 hostmaster (
-                                             1    ; Serial
-                                             3h   ; Refresh
-                                             1h   ; Retry
-                                             1w   ; Expire
-                                             1h)  ; Negative Cache TTL
-                         IN      NS      ns1
-                         IN      NS      ns2
-
-            @            IN      A       127.0.0.1
-                         IN      A       127.0.0.2
-                         IN      MX      10 mail
-                         IN      TXT     "v=spf1 mx"
-
-            www          IN      A       127.0.0.1
-                         IN      A       127.0.0.2
-
-            ns1          IN      A       127.0.0.1
-                         IN      A       127.0.0.2
-
-            ns2          IN      A       127.0.0.1
-                         IN      A       127.0.0.2
-          '';
-        };
-    };
   };
   services.xserver = {
     enable = true;

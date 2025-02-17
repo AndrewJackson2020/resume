@@ -102,6 +102,7 @@ in
      qbittorrent
      gdb
      ripgrep
+     mutt
      rustc 
      stow
      tealdeer

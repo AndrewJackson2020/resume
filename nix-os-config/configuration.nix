@@ -25,6 +25,10 @@
     ''
       127.0.0.1 whatever
       127.0.0.2 whatever
+
+      127.0.0.1 pg-loadbalancetest
+      127.0.0.2 pg-loadbalancetest
+      127.0.0.3 pg-loadbalancetest
     '';
   # Enable networking
   networking.networkmanager.enable = true;

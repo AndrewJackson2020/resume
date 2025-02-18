@@ -100,6 +100,9 @@ in
      protobufc
      python3
      qbittorrent
+     getmail6
+     newsboat
+     maildrop
      gdb
      ripgrep
      mutt

@@ -1,0 +1,8 @@
+https://neon.tech/blog/rss.xml tech_blog
+https://www.timescale.com/blog/rss tech_blog
+https://www.enterprisedb.com/blog/rss.xml tech_blog
+
+https://github.com/pgbouncer/pgbouncer/releases.atom github_releases
+https://github.com/neondatabase/neon/releases.atom github_releases
+https://github.com/patroni/patroni/releases.atom github_releases
+https://github.com/yandex/odyssey/releases.atom github_releases

@@ -1,8 +1,14 @@
-https://neon.tech/blog/rss.xml tech_blog
-https://www.timescale.com/blog/rss tech_blog
-https://www.enterprisedb.com/blog/rss.xml tech_blog
+https://neon.tech/blog/rss.xml tech_blog "~Blog: Neon"
+https://www.timescale.com/blog/rss tech_blog "~Blog: Timescale"
+https://www.enterprisedb.com/blog/rss.xml tech_blog "~Blog: EnterpriseDB Blog"
 
-https://github.com/pgbouncer/pgbouncer/releases.atom github_releases
-https://github.com/neondatabase/neon/releases.atom github_releases
-https://github.com/patroni/patroni/releases.atom github_releases
-https://github.com/yandex/odyssey/releases.atom github_releases
+https://github.com/pgbouncer/pgbouncer/releases.atom github_releases "~Releases: Pgbouncer"
+https://github.com/neondatabase/neon/releases.atom github_releases "~Releases: Neon"
+https://github.com/patroni/patroni/releases.atom github_releases "~Releases: Patroni"
+https://github.com/yandex/odyssey/releases.atom github_releases "~Releases: Odyssey"
+https://github.com/supabase/supavisor/releases.atom github_releases "~Releases: Supavisor"
+https://github.com/supabase-community/postgres_lsp/releases.atom github_releases "~Releases: Postgres LSP"
+https://github.com/timescale/timescaledb/releases.atom github_releases "~Releases: TimescaleDB"
+https://github.com/duckdb/pg_duckdb/releases.atom github_releases "~Releases: pg_duckdb"
+
+https://git.postgresql.org/gitweb/?p=postgresql.git;a=rss

@@ -11,4 +11,4 @@ https://github.com/supabase-community/postgres_lsp/releases.atom github_releases
 https://github.com/timescale/timescaledb/releases.atom github_releases "~Releases: TimescaleDB"
 https://github.com/duckdb/pg_duckdb/releases.atom github_releases "~Releases: pg_duckdb"
 
-https://git.postgresql.org/gitweb/?p=postgresql.git;a=rss
+https://git.postgresql.org/gitweb/?p=postgresql.git;a=rss "~Commits: Postgres"

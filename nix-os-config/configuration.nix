@@ -166,6 +166,7 @@
   )
   rustc 
   nodejs
+  home-manager
   ];
 
   programs = {

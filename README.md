@@ -21,7 +21,13 @@ sudo nixos-rebuild switch --flake ./#nixos-hyperv-vm
 sudo ./install.sh
 ```
 
+## Deploy Home Directory only
+```bash
+home-manager switch --flake ./
+```
+
 ## Initial Install command for new machines
 ```bash
 nix run .#resume --impure
 ```
+

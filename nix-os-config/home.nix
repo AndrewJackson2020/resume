@@ -57,6 +57,12 @@ let
   files_map = map (x: {"${x}".source = (home_file x);}) files;
 in
 {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
   home = {
     packages = with pkgs; [
      R

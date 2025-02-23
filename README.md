@@ -11,9 +11,14 @@ Build for desktop
 sudo nixos-rebuild switch --flake ./#nixos-desktop
 ```
 
-Build for VM
+Build for hyperv_vm
 ```bash
 sudo nixos-rebuild switch --flake ./#nixos-hyperv-vm
+```
+
+Build for KVM vm image
+```bash
+nix build .#nixosConfigurations.qcow-image.config.system.build.diskoImagesScript
 ```
 
 ## Initial Install command for new machines

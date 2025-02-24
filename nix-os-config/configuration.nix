@@ -167,6 +167,7 @@
   rustc 
   nodejs
   home-manager
+  virt-viewer
   ];
 
   programs = {
@@ -174,6 +175,5 @@
     virt-manager.enable = true;
   };
 
-  system.stateVersion = "23.11";
 
 }

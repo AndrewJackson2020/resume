@@ -11,13 +11,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    disko = {
-      url = "github:nix-community/disko/v1.11.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, ...}:
+  outputs = { self, nixpkgs, home-manager, ...}:
   let pkgs = nixpkgs.legacyPackages.x86_64-linux; in
 
   {
@@ -58,24 +54,15 @@
           }
         ];
       };
-      qcow-image = nixpkgs.lib.nixosSystem {
+      qvm_vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-	  ./nix-os-config/hardware_configuration/simple-efi.nix
           ./nix-os-config/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.andrew = import ./nix-os-config/home.nix;
           }
-	  disko.nixosModules.disko
-	  ({ config, ... }: {
-            # shut up state version warning
-            system.stateVersion = config.system.nixos.version;
-            # Adjust this to your liking.
-            # WARNING: if you set a too low value the image might be not big enough to contain the nixos installation
-            disko.devices.disk.main.imageSize = "100G";
-          })
         ];
       };
     };

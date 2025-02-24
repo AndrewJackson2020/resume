@@ -92,6 +92,7 @@
   users.users.andrew = {
     isNormalUser = true;
     description = "Andrew";
+    hashedPassword = "$y$j9T$qD5idLei07VLmuqTUaEMA1$vka3cUOh1T8CI05G5xoUMUZ5iZUmqoXxDKqY4m0JfVC";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     	qemu
@@ -121,6 +122,14 @@
     tctiEnvironment.enable = true;
   };
   virtualisation = {
+    vmVariant = {
+      # following configuration is added only when building VM with build-vm
+      virtualisation = {
+        memorySize = 8048;
+        cores = 4;
+        graphics = true;
+      };
+    };
     docker.enable = true;
     podman = {
     	enable = true;

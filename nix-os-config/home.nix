@@ -114,6 +114,7 @@ in
      mutt
      rustc 
      stow
+     ollama-cuda
      tealdeer
      tmux
      tree

@@ -16,9 +16,40 @@ vim.cmd [[colorscheme tokyonight]]
 require("nvim-tree").setup()
 require("mason").setup()
 
+require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "llama3",
+    },
+    inline = {
+      adapter = "llama3",
+    },
+  },
+  adapters = {
+    llama3 = function()
+      return require("codecompanion.adapters").extend("ollama", {
+        name = "llama3", -- Give this adapter a different name to differentiate it from the default ollama adapter
+        schema = {
+          model = {
+            default = "deepseek-r1:latest",
+          },
+          num_ctx = {
+            default = 16384,
+          },
+          num_predict = {
+            default = -1,
+          },
+        },
+      })
+    end,
+  },
+})
+
 require("mason-lspconfig").setup {
     ensure_installed = { "lua_ls", "rust_analyzer", "ruff_lsp"},
 }
+
+-- require("codecompanion").setup({})
 require 'lspconfig'.pyright.setup {}
 require 'lspconfig'.gopls.setup({})
 require 'lspconfig'.clangd.setup({ cmd = {'/etc/profiles/per-user/andrew/bin/clangd'} })
@@ -54,6 +85,17 @@ return require('packer').startup(function(use)
 
   -- Post-install/update hook with neovim command
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  use {
+    "olimorris/codecompanion.nvim",
+    config = function()
+      require("codecompanion").setup()
+    end,
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    }
+  }
  
   use {
     'nvim-tree/nvim-tree.lua',

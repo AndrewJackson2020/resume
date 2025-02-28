@@ -74,6 +74,7 @@ in
      black
      bat
      bc
+     nmap
      bitwarden
      cargo 
      clippy

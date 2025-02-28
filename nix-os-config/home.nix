@@ -79,6 +79,7 @@ in
      clippy
      cowsay
      rustfmt
+     dig
      rust-analyzer
      delta
      du-dust

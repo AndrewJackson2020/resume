@@ -9,6 +9,7 @@
     phone: phone_number,
     github: "AndrewJackson2020",
     linkedin: "andrew-jackson-410aab4b",
+    address: "Chicagoland Area",
     positions: (
       "Software Engineer",
     ),

@@ -65,6 +65,8 @@ in
   };
   home = {
     packages = with pkgs; [
+     pkgs.aspellDicts.en
+     aspell
      R
      alacritty
      clang

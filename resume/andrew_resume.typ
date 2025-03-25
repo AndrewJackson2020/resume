@@ -1,15 +1,15 @@
 #import "@preview/modern-cv:0.7.0": *
-#import "secrets.typ": phone_number
+#import "secrets.typ": andrew_phone_number
 
 #show: resume.with(
   author: (
     firstname: "Andrew",
     lastname: "Jackson",
     email: "AndrewJackson2988@gmail.com",
-    phone: phone_number,
+    phone: andrew_phone_number,
     github: "AndrewJackson2020",
     linkedin: "andrew-jackson-410aab4b",
-    address: "Chicagoland Area",
+    address: "Forest Park, IL",
     positions: (
       "Software Engineer",
     ),
@@ -30,12 +30,11 @@
 )
 
 #resume-item[
-  - Architected firmwide database infrastructure consisting of 16 bare metal database servers
-  - Led search for institutional grade open source connection pooler
-  - Implemented an instutitutional featureset to open source connection pooling software including GSS authentication, client connection limits, and more
-  - Integrated postgres database software with Bazel, the firms build tool, enabling more accurate
-    testing and faster database development
-  - Implemented scheduled backup and retention jobs for all firmwide databases
+  - Architected firm-wide database infrastructure to enable migration of 30 scattered Postgres instances running on application servers onto centralized DBA managed platform
+  - Acquired, configured, and maintained a fleet of 16 bare metal servers for databases and 4 VM's for etcd
+  - Increased scalability of Postgres databases 400% by implementing connection pool layer allowing greater process sharing between clients
+  - Wrote UI web app with python, flask and javascript to enable tenants and DBA's greater visibility into database operations across instances (open connections, idle transaction time, backup availability, etc)
+  - Migrated scheduled maintenance jobs from disparate cron jobs on various machines to centralized scheduler platform enabling greater visibility and better integration with alerting platform
 ]
 
 #resume-entry(
@@ -45,13 +44,10 @@
   description: "Enfusion",
 )
 #resume-item[
-  - Led the creation of a software development team with the goal of increasing scalability ofthe analytics product line
+  - Led the creation of a software development team with the goal of increasing scalability of the analytics product line
   - Trained analytics team members in Python programming and software development best practices
   - Architected infrastructure on Google Cloud using Terraform and Docker to ensure reproducible software execution environments with dev/prod parity
-  - Enabled cleanup of legacy SQL codebase by introducing Python based application layer delivered via REST API hosted on GCP and securely consumed by AWS based BI application
-  - Facilitated fast and consistent database deployments across client environments by writing CLI in Go that leveraged Terraform metaprogramming
-
-
+  - Enabled cleanup of legacy SQL code-base by introducing Python based application layer delivered via REST API hosted on GCP and securely consumed by AWS based BI application
 ]
 
 
@@ -63,32 +59,33 @@
 )
 
 #resume-item[
-  - Developed R application utilizing the Axioma Portfolio Optimizer API to optimize portfolios and generate reporting and controls around rebalances which was used to manage 5\% of the firms Equity indexed strategy AUM
+  - Developed R application utilizing the Axioma Portfolio Optimizer API to optimize portfolios and generate reporting and controls around re-balances which was used to manage 5\% of the firms Equity indexed strategy AUM
   - Wrote Python processes to automatically validate index files received from providers to ensure that index holdings comply with the index methodology
   - Designed data warehouse, reporting, and analytics application in Python to integrate index file data, fund position data, as well as market data from the Bloomberg and Factset
- - Built dashboard using Python to provide comprehensive reporting, analytics, and oversight around index rebalances
 ]
 
 = Open Source
 
 #resume-entry(
   title: "Pgbouncer",
+  description: "Postgres connection pooler - C",
   location: [#github-link("pgbouncer/pgbouncer")],
 )
 
 #resume-item[
-  - Fixed critical vulnerability that allowed pgbouncer to be succeptable from DDOS attacks
-  - Implement GSS Authentication to allow SSO via active directory
-  - Implement numerous other features to make pgbouncer a more insitutional capable application
+  - Fixed critical vulnerability that allowed pgbouncer to be susceptible from DDOS attacks
+  - (Under Review) Implemented GSS Authentication to allow SSO via active directory
 ]
 
 #resume-entry(
-  title: "Connector X",
-  location: github-link("sfu-db/connector-x"),
+  title: "Postgres",
+  description: "Relational Database - C",
+  location: [#github-link("postgres/postgres")],
 )
 
 #resume-item[
-  - Fix various issues with postgres to polars data type conversions
+  - (Under Review) Fixed outdated usage of LDAPv2 protocol in libpq preventing usage on some LDAP servers, including many slapd configurations
+  - (Under Review) Implemented option to allow client to check all addresses within the given host for a valid connection
 ]
 
 = Skills

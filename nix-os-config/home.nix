@@ -79,6 +79,8 @@ in
      nmap
      bitwarden
      cargo 
+     sysstat
+     tcpdump
      clippy
      cowsay
      rustfmt
@@ -104,6 +106,7 @@ in
      openssl
      pgbouncer
      podman-compose
+     linuxKernel.packages.linux_zen.perf
      postgresql_16
      procs
      protobuf_23

@@ -28,16 +28,16 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 
 #resume-skill-item(
   "Operations",
- ("Inventory control and distribution", "Process Roadmap Creation", "Root Cause Analysis" ,"Sales and Operations Planning", "CPFR", "Statistical forecast and trend modeling", "Scenario planning")
+ ("Inventory control and distribution", "Root Cause Analysis" ,"Sales and Operations Planning", "Statistical forecast and trend modeling", "Scenario planning")
 )
 
 #resume-skill-item(
-  "Change",
-  ("Lean process improvement", "Project management", "Training and development" )
+  "Optimization",
+  ("Lean process improvement", "Project management", "Process Roadmap Creation", "Training and development" )
 )
 #resume-skill-item(
-  "Leadership",
-  ("Strategic leadership", "Client and supplier relationship management" )
+  "Collaboration",
+  ("Strategic leadership", "Client and supplier relationship management", "Growth-mindset", "Agile", "Resilient", "CPFR")
 )
 
 #resume-skill-item(
@@ -56,11 +56,11 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-  - Supply planning lead for national promotions across 3 high visibility categories driving timelines and activities to ensure supply planning deliverables are met for over 13,000 restaurants with uniform consistency
-  - Established process and methodology for the supply planning teams by utilizing lean practices to streamline standard operational procedures resulting in an increase of operational efficiencies by 10%
-  - Coordinated the design of a centralized dashboard to improve cross-functional visibility across 4 echelons in order to identify insights for budget and operational planning
-  - Accountable for building a resilient supply plan for over 8 promotions per year by leading proactive discussions for all KPI metrics including in-stock, days of supply, operational expenditure and savings, cost mitigations, liabilities, executional efficiency and accuracy
-  - Advised scenario planning recommendations to the client identifying all assumptions, risks, and opportunities in the promotions' life cycle to support optimized launch strategy while minimizing liability, achieve in-stock targets of 95%, and ensure business continuity
+- Supply planning lead for national promotions across 3 high visibility categories driving timelines and activities to ensure deliverables are met with uniform consistency for over 13,000 restaurants 
+- Established standard operational processes and methodology utilizing lean practices to improve operational efficiencies by 10%
+- Coordinated the design of a centralized dashboard to enhance cross-functional visibility across 4 echelons in order to identify insights for budget and operational planning
+- Accountable for building a resilient supply plan for over 8 promotions per year by leading proactive discussions for all KPI metrics including in-stock, days of supply, operational expenditure and savings, cost mitigations, liabilities, executional efficiency and accuracy
+- Advised scenario planning recommendations to the client identifying all assumptions, risks, and opportunities in the promotions' life cycle to support optimized launch strategy while minimizing liability, achieve in-stock targets of 95%, and ensure business continuity
 ]
 
 #resume-entry(
@@ -70,10 +70,10 @@ Supply chain professional with 9+ years of results-driven experience planning fo
   description: "First year was contracted via LaSalle Network",
 )
 #resume-item[
-  - Operation lead of 5 cross-functional team members for the U.S. and Canada Happy Meal toy and packaging categories to ensure the accountability of all tasks and deliverables via weekly touch points 
-  - Lead process improvement projects towards digital automation within all modes of the supply chain including restaurants, DC, HUB, suppliers, and client partners to alleviate operational pain points by 20%
-  - Managed demand forecast for volatile items by critically reviewing historical trends and demand drivers
-  - Solutioned for limited stock and complex promotional turns criteria by logic testing the maximum utility of a specialized enterprise planning software
+- Operation lead of 5 cross-functional team members for the U.S. and Canada Happy Meal toy and packaging categories to ensure the accountability of all tasks and deliverables via weekly touch points 
+- Drove digital automation initiatives across the supply chain including restaurants, DC, HUB, suppliers, and client partners to alleviate operational pain points by 20%
+- Managed demand forecast for volatile items by critically analyzing historical trends and demand drivers
+- Solutioned for limited stock and complex promotional turns by utilizing specialized planning software to optimize outcomes
 ]
 
 
@@ -85,10 +85,10 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-  - Lead inventory and merchant teams in monthly forecast planning meetings to identify growth opportunities across all  categories worth \$350M  
-  - Designed a standardized template for inventory team’s monthly budget (open to buy) reporting to improve receipt  accuracy by 3% and sales by 5% 
-  - Consulted with senior management on the creation of ad-hoc reporting using cubes and databases on various supply  chain bottlenecks to find and analyze pain points to improve processes and drive results  
-  - Troubleshoot and test different environments in Oracle financial planning system to resolve irregular performance  issues for end-user
+- Lead inventory and merchant teams in monthly forecast planning meetings to identify growth opportunities across all  categories worth \$350M  
+- Designed a standardized template for inventory team’s monthly budget (open to buy) reporting to improve receipt  accuracy by 3% and sales by 5% 
+- Consulted with senior management on the creation of ad-hoc reporting using cubes and databases on various supply  chain bottlenecks to find and analyze pain points to improve processes and drive results  
+- Troubleshoot and test different environments in Oracle financial planning system to resolve irregular performance  issues for end-user
 ]
 
 
@@ -100,10 +100,10 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-  - Reviewed product setup, assortment, and replenishment issues directly with about 600 stores for a \$27.5 M business 
-  - Updated and maintained accurate weekly ad hoc reports and data to track progress of in stocks, flow of product, and  receipts 
-  - Forecasted monthly units to purchase with vendor using demand analysis of sales history, product opportunities and  seasonal cycles that validates profitable sale turns per season 
-  - Adhered to tight timelines for on-time execution of seasonal product launches by planning for lead-time and type of  supply flow
+- Reviewed product setup, assortment, and replenishment issues directly with about 600 stores for a \$27.5M business
+- Updated and maintained accurate weekly ad hoc reports and data to track progress of in stocks, flow of product, and  receipts 
+- Forecasted monthly units to purchase with vendor using demand analysis of sales history, product opportunities and  seasonal cycles that validates profitable sale turns per season 
+- Adhered to tight timelines for on-time execution of seasonal product launches by planning for lead-time and type of  supply flow
 ]
 
 = Education

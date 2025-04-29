@@ -56,11 +56,11 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-- Supply planning lead for national promotions across 3 high visibility categories driving timelines and activities to ensure deliverables are met with uniform consistency for over 13,000 restaurants 
+- Supply planning lead for national promotions cross-functional teams across 3 high visibility categories driving timelines and replenishment activities to ensure deliverables are met with uniform consistency for over 13,000 restaurants
+- Used the CPFR framework to advise scenario planning recommendations to the client and cross-functional teams identifying all assumptions, risks, and opportunities in the promotions' life cycle to support optimized launch strategy while minimizing liability, achieve in-stock targets of 95%, and ensure business continuity 
+- Accountable for building a resilient supply plan for over 8 promotions per year by leading proactive discussions for all KPI metrics including in-stock, days of supply, operational expenditure and savings, cost mitigations, liabilities, executional efficiency and accuracy
 - Established standard operational processes and methodology utilizing lean practices to improve operational efficiencies by 10%
 - Coordinated the design of a centralized dashboard to enhance cross-functional visibility across 4 echelons in order to identify insights for budget and operational planning
-- Accountable for building a resilient supply plan for over 8 promotions per year by leading proactive discussions for all KPI metrics including in-stock, days of supply, operational expenditure and savings, cost mitigations, liabilities, executional efficiency and accuracy
-- Advised scenario planning recommendations to the client identifying all assumptions, risks, and opportunities in the promotions' life cycle to support optimized launch strategy while minimizing liability, achieve in-stock targets of 95%, and ensure business continuity
 ]
 
 #resume-entry(
@@ -85,7 +85,7 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-- Lead inventory and merchant teams in monthly forecast planning meetings to identify growth opportunities across all  categories worth \$350M  
+- Lead inventory and merchant teams in monthly forecast planning meetings to identify growth opportunities across all  categories worth $350M  
 - Designed a standardized template for inventory team’s monthly budget (open to buy) reporting to improve receipt  accuracy by 3% and sales by 5% 
 - Consulted with senior management on the creation of ad-hoc reporting using cubes and databases on various supply  chain bottlenecks to find and analyze pain points to improve processes and drive results  
 - Troubleshoot and test different environments in Oracle financial planning system to resolve irregular performance  issues for end-user
@@ -100,7 +100,7 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-- Reviewed product setup, assortment, and replenishment issues directly with about 600 stores for a \$27.5M business
+- Reviewed product setup, assortment, and replenishment issues directly with about 600 stores for a $27.5 M business 
 - Updated and maintained accurate weekly ad hoc reports and data to track progress of in stocks, flow of product, and  receipts 
 - Forecasted monthly units to purchase with vendor using demand analysis of sales history, product opportunities and  seasonal cycles that validates profitable sale turns per season 
 - Adhered to tight timelines for on-time execution of seasonal product launches by planning for lead-time and type of  supply flow
@@ -113,4 +113,8 @@ Supply chain professional with 9+ years of results-driven experience planning fo
   location: "Dekalb, IL",
   date: "May 2014",
   description: "Bachelor of Science in Economics",
+)
+#resume-entry(
+  title: "Lean Six Sigma Black Belt",
+  date: "Expected July 2025",
 )

@@ -85,7 +85,7 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-- Lead inventory and merchant teams in monthly forecast planning meetings to identify growth opportunities across all  categories worth $350M  
+- Lead inventory and merchant teams in monthly forecast planning meetings to identify growth opportunities across all  categories worth \$350M  
 - Designed a standardized template for inventory team’s monthly budget (open to buy) reporting to improve receipt  accuracy by 3% and sales by 5% 
 - Consulted with senior management on the creation of ad-hoc reporting using cubes and databases on various supply  chain bottlenecks to find and analyze pain points to improve processes and drive results  
 - Troubleshoot and test different environments in Oracle financial planning system to resolve irregular performance  issues for end-user
@@ -100,7 +100,7 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 
 #resume-item[
-- Reviewed product setup, assortment, and replenishment issues directly with about 600 stores for a $27.5 M business 
+- Reviewed product setup, assortment, and replenishment issues directly with about 600 stores for a \$27.5 M business 
 - Updated and maintained accurate weekly ad hoc reports and data to track progress of in stocks, flow of product, and  receipts 
 - Forecasted monthly units to purchase with vendor using demand analysis of sales history, product opportunities and  seasonal cycles that validates profitable sale turns per season 
 - Adhered to tight timelines for on-time execution of seasonal product launches by planning for lead-time and type of  supply flow

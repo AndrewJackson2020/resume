@@ -80,7 +80,7 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 #resume-entry(
   title: "Supply Chain Analyst - S&OP, True Value Company",
   location: "Chicago, IL",
-  date: "Feb. 2015 – Jun. 2016",
+  date: "Jul. 2016 – Aug. 2017",
   description: "Retailer-owned hardware wholesaler serving more than 4,500 stores worldwide",
 )
 

@@ -89,6 +89,7 @@ in
      delta
      du-dust
      emacs
+     smartmontools
      isort
      feh
      brave

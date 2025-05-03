@@ -103,6 +103,7 @@ in
      libreoffice
      odyssey
      openldap
+     dmidecode
      openssl
      pgbouncer
      podman-compose
@@ -115,9 +116,11 @@ in
      qbittorrent
      getmail6
      newsboat
+     lshw
      maildrop
      gdb
      ripgrep
+     pciutils
      mutt
      rustc 
      stow

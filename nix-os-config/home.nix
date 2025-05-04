@@ -104,6 +104,7 @@ in
      libreoffice
      odyssey
      openldap
+     lshw
      dmidecode
      openssl
      pgbouncer

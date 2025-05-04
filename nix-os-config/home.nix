@@ -125,6 +125,7 @@ in
      pciutils
      mutt
      rustc 
+     ntfs3g
      stow
      ollama-cuda
      tealdeer

@@ -168,26 +168,27 @@
     font-awesome
   ];
   environment.systemPackages = with pkgs; [
-  ((vim_configurable.override {  }).customize{
-        name = "vim";
-        vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-          start = [ nerdtree gruvbox ];
-          opt = [];
-        };
-        vimrcConfig.customRC = ''
-          " your custom vimrc
-          set nocompatible
-          set backspace=indent,eol,start
-          " Turn on syntax highlighting by default
-          syntax on
-          " ...
-        '';
-      }
-  )
-  rustc 
-  nodejs
-  home-manager
-  virt-viewer
+    ((vim_configurable.override {  }).customize{
+          name = "vim";
+          vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+            start = [ nerdtree gruvbox ];
+            opt = [];
+          };
+          vimrcConfig.customRC = ''
+            " your custom vimrc
+            set nocompatible
+            set backspace=indent,eol,start
+            " Turn on syntax highlighting by default
+            syntax on
+            " ...
+          '';
+        }
+    )
+    rustc 
+    nodejs
+    home-manager
+    virt-viewer
+    bubblewrap
   ];
 
   programs = {

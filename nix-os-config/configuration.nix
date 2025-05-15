@@ -193,6 +193,7 @@
   programs = {
     thunar.enable = true;
     virt-manager.enable = true;
+    steam.enable = true;
   };
 
 

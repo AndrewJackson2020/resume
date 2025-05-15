@@ -8,11 +8,25 @@
   boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ]; boot.initrd.kernelModules = [ ]; 
   boot.kernelModules = [ "kvm-intel" ]; boot.extraModulePackages = [ ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = false;
+  boot.loader.grub = {
+    device = "nodev";
+    useOSProber = false;
+    efiSupport = true;
+    enable = true;
+    extraEntries = ''
+      menuentry 'Windows'  --class windows --class os {
+        search --fs-uuid --set=root A6A8-53A4
+        chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+      }
+      menuentry "Reboot" {
+        reboot
+      }
+      menuentry "Shutdown" {
+        halt
+      }
+    '';
+  };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.efiSupport = true;
   boot.loader.timeout = null;
 
   fileSystems."/" = { device = "rpool/root";

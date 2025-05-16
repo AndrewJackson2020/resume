@@ -40,6 +40,9 @@
   fileSystems."/boot" = { device = "/dev/disk/by-uuid/D2FC-FE6B";
       fsType = "vfat";
     };
+  fileSystems."/mnt/backup_data" = { device = "hdd_pool/data";
+      fsType = "zfs";
+    };
 
   swapDevices = [ ];
 

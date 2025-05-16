@@ -29,6 +29,9 @@
       127.0.0.1 pg-loadbalancetest
       127.0.0.2 pg-loadbalancetest
       127.0.0.3 pg-loadbalancetest
+
+      192.168.50.98 nixos-desktop	
+      172.18.0.1 nixos-laptop 
     '';
   # Enable networking
   networking.networkmanager.enable = true;

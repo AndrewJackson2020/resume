@@ -101,7 +101,10 @@
     openFirewall = true;
   };
   services.picom.enable = true;
-
+  services.sysstat = {
+    enable = true;
+    collect-frequency = "*:00/1";
+  };
   users.users.andrew = {
     isNormalUser = true;
     description = "Andrew";

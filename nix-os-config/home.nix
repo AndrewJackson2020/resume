@@ -134,10 +134,8 @@ in
      unzip
      vscode
      wget
-     starship
      zenith
      zoxide
-     zsh
     ];
     username = "andrew";
     homeDirectory = "/home/andrew";
@@ -181,6 +179,40 @@ in
         bashrcExtra = ''
           source ~/.old_bashrc
         '';
+    };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      initExtra = ''
+# export ZSH="$HOME/.oh-my-zsh"
+plugins=(git)
+
+ZSH_THEME="robbyrussell"
+# source $ZSH/oh-my-zsh.sh
+
+export EDITOR="nvim"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH=$PATH:~/.config/emacs/bin/
+export PATH=$PATH:~/.local/go/bin/
+export PATH=$PATH:~/go/bin/
+
+FZF_CTRL_T_COMMAND= eval "$(fzf --zsh)"
+
+
+autoload -U compinit; compinit
+source ~/.fzf-tab/fzf-tab.plugin.zsh
+      '';
+      shellAliases = {
+      	vim="nvim";
+      	vi="nvim";
+      };
+      oh-my-zsh.enable = true;
     };
     neovim = {
       enable = true;

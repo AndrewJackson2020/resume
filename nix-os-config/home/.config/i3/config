@@ -189,13 +189,14 @@ bar {
 gaps inner 5px
 gaps outer 5px
 
-exec --no-startup-id bash -c ' \
-i3-msg "workspace 1:term; exec alacritty --command tmux;"; \
-sleep 1; \
-i3-msg "workspace 2:bitwarden; exec bitwarden;"; \
-sleep 1; \
-i3-msg "workspace 3:email; exec brave gmail.com --new-window;"; \
-sleep 1; \
-i3-msg "workspace 4:web; exec brave --new-window;"; \
-'
+exec --no-startup-id i3-msg 'workspace 1:term; append_layout ~/.config/i3/workspace-1.json'
+exec alacritty --command tmux
 
+exec --no-startup-id i3-msg 'workspace 2:pass; append_layout ~/.config/i3/workspace-2.json'
+exec bitwarden
+
+exec --no-startup-id i3-msg 'workspace 3:email; append_layout ~/.config/i3/workspace-3.json'
+exec brave gmail.com --new-window
+
+exec --no-startup-id i3-msg 'workspace 4:web; append_layout ~/.config/i3/workspace-4.json'
+exec brave --new-window

@@ -53,6 +53,12 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
   services.xserver = {
     enable = true;
  
@@ -195,6 +201,7 @@
     home-manager
     virt-viewer
     bubblewrap
+    pavucontrol
   ];
 
   programs = {

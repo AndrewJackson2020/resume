@@ -226,6 +226,8 @@ source ~/.fzf-tab/fzf-tab.plugin.zsh
         pkgs.vimPlugins.mason-lspconfig-nvim
         pkgs.vimPlugins.nvim-cmp
         pkgs.vimPlugins.cmp-nvim-lsp
+	# TODO codecompanion is currently in unstable/beta. 
+	# 	Should add here when it goes live
       ];
     };
   };

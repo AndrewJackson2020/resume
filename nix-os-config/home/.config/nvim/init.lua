@@ -1,77 +1,9 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
-require("tokyonight").setup({
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  transparent = true, -- Enable this to disable setting the background color
-  styles = {
-     sidebars = "transparent",
-     floats = "transparent",
-  }
-})
-vim.cmd [[colorscheme tokyonight]]
-
-require("nvim-tree").setup()
-require("mason").setup()
-
-require("codecompanion").setup({
-  strategies = {
-    chat = {
-      adapter = "llama3",
-    },
-    inline = {
-      adapter = "llama3",
-    },
-  },
-  adapters = {
-    llama3 = function()
-      return require("codecompanion.adapters").extend("ollama", {
-        name = "llama3", -- Give this adapter a different name to differentiate it from the default ollama adapter
-        schema = {
-          model = {
-            default = "deepseek-r1:latest",
-          },
-          num_ctx = {
-            default = 16384,
-          },
-          num_predict = {
-            default = -1,
-          },
-        },
-      })
-    end,
-  },
-})
-
-require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "rust_analyzer", "ruff_lsp"},
-}
-
--- require("codecompanion").setup({})
-require 'lspconfig'.pyright.setup {}
-require 'lspconfig'.gopls.setup({})
-require 'lspconfig'.clangd.setup({ cmd = {'/etc/profiles/per-user/andrew/bin/clangd'} })
-require 'lspconfig'.rust_analyzer.setup {
-    cmd = {'/etc/profiles/per-user/andrew/bin/rust-analyzer'},
-    settings = {
-        ['rust-analyzer'] = {
-            check = {
-                command = "clippy";
-            },
-            diagnostics = {
-                enable = true;
-            }
-        }
-    }
-}
 
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   use {
@@ -117,74 +49,91 @@ return require('packer').startup(function(use)
 
   cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-
-        -- For `mini.snippets` users:
-        -- local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-        -- insert({ body = args.body }) -- Insert at cursor
-        -- cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-        -- require("cmp.config").set_onetime({ sources = {} })
+        vim.fn["vsnip#anonymous"](args.body)
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
+      { name = 'vsnip' },
     }, {
       { name = 'buffer' },
     })
   })
 
-  -- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
-  -- Set configuration for specific filetype.
-  --[[ cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' },
-    }, {
-      { name = 'buffer' },
-    })
- })
- require("cmp_git").setup() ]]-- 
+require("tokyonight").setup({
+  transparent = true,
+  styles = {
+     sidebars = "transparent",
+     floats = "transparent",
+  }
+})
+vim.cmd [[colorscheme tokyonight]]
 
-  -- -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  -- cmp.setup.cmdline({ '/', '?' }, {
-  --   mapping = cmp.mapping.preset.cmdline(),
-  --   sources = {
-  --     { name = 'buffer' }
-  --   }
-  -- })
+require("nvim-tree").setup()
+require("mason").setup()
 
-  -- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  -- cmp.setup.cmdline(':', {
-  --   mapping = cmp.mapping.preset.cmdline(),
-  --   sources = cmp.config.sources({
-  --     { name = 'path' }
-  --   }, {
-  --     { name = 'cmdline' }
-  --   }),
-  --   matching = { disallow_symbol_nonprefix_matching = false }
-  -- })
+
+require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls", "rust_analyzer", "ruff_lsp"},
+}
+
+require 'lspconfig'.pyright.setup {}
+require 'lspconfig'.gopls.setup({})
+require 'lspconfig'.clangd.setup({ cmd = {'/etc/profiles/per-user/andrew/bin/clangd'} })
+require 'lspconfig'.rust_analyzer.setup {
+    cmd = {'/etc/profiles/per-user/andrew/bin/rust-analyzer'},
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = "clippy";
+            },
+            diagnostics = {
+                enable = true;
+            }
+        }
+    }
+}
+
+require("codecompanion").setup({
+  strategies = {
+    chat = {
+      adapter = "llama3",
+    },
+    inline = {
+      adapter = "llama3",
+    },
+  },
+  adapters = {
+    llama3 = function()
+      return require("codecompanion.adapters").extend("ollama", {
+        name = "llama3", -- Give this adapter a different name to differentiate it from the default ollama adapter
+        schema = {
+          model = {
+            default = "deepseek-r1:latest",
+          },
+          num_ctx = {
+            default = 16384,
+          },
+          num_predict = {
+            default = -1,
+          },
+        },
+      })
+    end,
+  },
+})
 
   -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 end)
 

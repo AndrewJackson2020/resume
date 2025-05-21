@@ -37,3 +37,8 @@ home-manager switch --flake ./
 nix run .#resume --impure
 ```
 
+## Format nix files
+```bash
+nix fmt
+```
+

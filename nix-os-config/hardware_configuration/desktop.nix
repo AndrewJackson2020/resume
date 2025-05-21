@@ -2,11 +2,14 @@
 # /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
-{ imports =
+{
+  imports =
     [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ]; boot.initrd.kernelModules = [ ]; 
-  boot.kernelModules = [ "kvm-intel" ]; boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = [ "vmd" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
 
   boot.loader.grub = {
     device = "nodev";
@@ -29,71 +32,75 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = null;
 
-  fileSystems."/" = { device = "rpool/root";
-      fsType = "zfs";
-    };
+  fileSystems."/" = {
+    device = "rpool/root";
+    fsType = "zfs";
+  };
 
-  fileSystems."/home" = { device = "rpool/home";
-      fsType = "zfs";
-    };
+  fileSystems."/home" = {
+    device = "rpool/home";
+    fsType = "zfs";
+  };
 
-  fileSystems."/boot" = { device = "/dev/disk/by-uuid/D2FC-FE6B";
-      fsType = "vfat";
-    };
-  fileSystems."/mnt/backup_data" = { device = "hdd_pool/data";
-      fsType = "zfs";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/D2FC-FE6B";
+    fsType = "vfat";
+  };
+  fileSystems."/mnt/backup_data" = {
+    device = "hdd_pool/data";
+    fsType = "zfs";
+  };
 
   swapDevices = [ ];
-services = {
-	samba = {
-	  enable = true;
-	  securityType = "user";
-	  openFirewall = true;
-	  settings = {
-	    global = {
-	      "workgroup" = "WORKGROUP";
-	      "server string" = "smbnix";
-	      "netbios name" = "smbnix";
-	      "security" = "user";
-	      #"use sendfile" = "yes";
-	      #"max protocol" = "smb2";
-	      # note: localhost is the ipv6 localhost ::1
-	      "hosts allow" = "0.0.0.0/0 192.168.0. 127.0.0.1 localhost";
-	      # "hosts deny" = "0.0.0.0/0";
-	      "guest account" = "nobody";
-	      "map to guest" = "bad user";
-	    };
-	    "public" = {
-	      "path" = "/mnt/backup_data";
-	      "browseable" = "yes";
-	      "read only" = "no";
-	      "guest ok" = "yes";
-	      "create mask" = "0644";
-	      "directory mask" = "0755";
-	      "force user" = "username";
-	      "force group" = "groupname";
-	    };
-	  };
-	};
-	nfs.server = {
-		enable = true;
-		exports = ''
-		    /mnt/backup_data *(rw,fsid=0)
-		'';
-	};
-};
+  services = {
+    samba = {
+      enable = true;
+      securityType = "user";
+      openFirewall = true;
+      settings = {
+        global = {
+          "workgroup" = "WORKGROUP";
+          "server string" = "smbnix";
+          "netbios name" = "smbnix";
+          "security" = "user";
+          #"use sendfile" = "yes";
+          #"max protocol" = "smb2";
+          # note: localhost is the ipv6 localhost ::1
+          "hosts allow" = "0.0.0.0/0 192.168.0. 127.0.0.1 localhost";
+          # "hosts deny" = "0.0.0.0/0";
+          "guest account" = "nobody";
+          "map to guest" = "bad user";
+        };
+        "public" = {
+          "path" = "/mnt/backup_data";
+          "browseable" = "yes";
+          "read only" = "no";
+          "guest ok" = "yes";
+          "create mask" = "0644";
+          "directory mask" = "0755";
+          "force user" = "username";
+          "force group" = "groupname";
+        };
+      };
+    };
+    nfs.server = {
+      enable = true;
+      exports = ''
+        		    /mnt/backup_data *(rw,fsid=0)
+        		'';
+    };
+  };
 
-services.samba-wsdd = {
-  enable = true;
-  openFirewall = true;
-};
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
 
-networking.firewall.enable = true;
-networking.firewall.allowPing = true;
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 
-    services.xserver.videoDrivers = [ "nvidia" ];
-    hardware.nvidia.open=false;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = false;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking (the default) this is the recommended approach. When using 
   # systemd-networkd it's still possible to use this option, but it's recommended to use it in conjunction with explicit per-interface declarations 
@@ -102,7 +109,8 @@ networking.firewall.allowPing = true;
   networking.hostId = "abcd1234";
   # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true; networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux"; powerManagement.cpuFreqGovernor = lib.mkDefault "powersave"; hardware.cpu.intel.updateMicrocode 
-  = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
 

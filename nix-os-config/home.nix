@@ -1,4 +1,3 @@
-
 { lib, config, pkgs, ... }:
 
 let
@@ -51,10 +50,10 @@ let
   };
   get_files = x: map (y: x + "/" + y) (builtins.attrNames (lib.filterAttrs (n: v: v == "regular") (builtins.readDir (./home + x))));
   get_directories = x: builtins.concatLists (map (y: get_dotfiles (x + "/" + y)) (builtins.attrNames (lib.filterAttrs (n: v: v == "directory") (builtins.readDir (./home + x)))));
-  get_dotfiles = x: map (y: y) (builtins.concatLists [(get_directories x) (get_files x)]);
+  get_dotfiles = x: map (y: y) (builtins.concatLists [ (get_directories x) (get_files x) ]);
   home_file = x: ./home + ("/" + x);
   files = get_dotfiles "";
-  files_map = map (x: {"${x}".source = (home_file x);}) files;
+  files_map = map (x: { "${x}".source = (home_file x); }) files;
 in
 {
   nixpkgs = {
@@ -65,77 +64,77 @@ in
   };
   home = {
     packages = with pkgs; [
-     pkgs.aspellDicts.en
-     aspell
-     R
-     alacritty
-     clang
-     clang-tools
-     ansible
-     bazel_7
-     black
-     bat
-     bc
-     nmap
-     bitwarden
-     cargo 
-     sysstat
-     tcpdump
-     clippy
-     cowsay
-     rustfmt
-     dig
-     rust-analyzer
-     delta
-     du-dust
-     emacs
-     smartmontools
-     isort
-     feh
-     brave
-     fortune
-     # gcc
-     gh
-     git
-     graphviz
-     gnumake
-     htop
-     jq
-     libreoffice
-     odyssey
-     openldap
-     lshw
-     dmidecode
-     openssl
-     pgbouncer
-     podman-compose
-     linuxKernel.packages.linux_zen.perf
-     postgresql_16
-     procs
-     protobuf_23
-     protobufc
-     python3
-     qbittorrent
-     getmail6
-     newsboat
-     lshw
-     maildrop
-     gdb
-     ripgrep
-     pciutils
-     mutt
-     rustc 
-     ntfs3g
-     stow
-     ollama-cuda
-     tealdeer
-     tmux
-     tree
-     unzip
-     vscode
-     wget
-     zenith
-     zoxide
+      pkgs.aspellDicts.en
+      aspell
+      R
+      alacritty
+      clang
+      clang-tools
+      ansible
+      bazel_7
+      black
+      bat
+      bc
+      nmap
+      bitwarden
+      cargo
+      sysstat
+      tcpdump
+      clippy
+      cowsay
+      rustfmt
+      dig
+      rust-analyzer
+      delta
+      du-dust
+      emacs
+      smartmontools
+      isort
+      feh
+      brave
+      fortune
+      # gcc
+      gh
+      git
+      graphviz
+      gnumake
+      htop
+      jq
+      libreoffice
+      odyssey
+      openldap
+      lshw
+      dmidecode
+      openssl
+      pgbouncer
+      podman-compose
+      linuxKernel.packages.linux_zen.perf
+      postgresql_16
+      procs
+      protobuf_23
+      protobufc
+      python3
+      qbittorrent
+      getmail6
+      newsboat
+      lshw
+      maildrop
+      gdb
+      ripgrep
+      pciutils
+      mutt
+      rustc
+      ntfs3g
+      stow
+      ollama-cuda
+      tealdeer
+      tmux
+      tree
+      unzip
+      vscode
+      wget
+      zenith
+      zoxide
     ];
     username = "andrew";
     homeDirectory = "/home/andrew";
@@ -143,32 +142,32 @@ in
     stateVersion = "23.05"; # Please read the comment before changing.
 
     file = lib.mkMerge ([
-      {"iso/arch.iso".source = arch_iso;} 
-      {"iso/rocky_9.iso".source = rocky9_iso;} 
-      {"iso/temple_os.iso".source = temple_os_iso;} 
+      { "iso/arch.iso".source = arch_iso; }
+      { "iso/rocky_9.iso".source = rocky9_iso; }
+      { "iso/temple_os.iso".source = temple_os_iso; }
       # {"iso/debian.iso".source = debian_iso;} 
-      {".local/bin/terraform".source = terraform_src + "/terraform";} 
-      {".local/go".source = go_src;}
-      {".local/bin/eza".source = eza_src + "/eza";}
-      {".local/bin/fzf".source = fzf_src + "/fzf";}
-      {".local/bin/typst".source = typst_src + "/typst";}
-      {".oh-my-zsh".source = oh_my_zsh_src;}
-      {".fzf-tab".source = fzf_tab;}
-      {".old_bashrc".source = ./.bashrc;}
+      { ".local/bin/terraform".source = terraform_src + "/terraform"; }
+      { ".local/go".source = go_src; }
+      { ".local/bin/eza".source = eza_src + "/eza"; }
+      { ".local/bin/fzf".source = fzf_src + "/fzf"; }
+      { ".local/bin/typst".source = typst_src + "/typst"; }
+      { ".oh-my-zsh".source = oh_my_zsh_src; }
+      { ".fzf-tab".source = fzf_tab; }
+      { ".old_bashrc".source = ./.bashrc; }
     ] ++ files_map);
   };
   systemd.user.services = {
     rocky-dev-container = {
-      Unit = { 
+      Unit = {
         Description = "Container running ssh to do development on";
       };
 
       Service = {
-         Environment=[
-	  "PATH=/bin:/sbin:/nix/var/nix/profiles/default/bin:/run/wrappers/bin"
-	  "PODMAN_SYSTEMD_UNIT=%n"
-	 ];
-	 ExecStart = "${pkgs.podman}/bin/podman start $n";
+        Environment = [
+          "PATH=/bin:/sbin:/nix/var/nix/profiles/default/bin:/run/wrappers/bin"
+          "PODMAN_SYSTEMD_UNIT=%n"
+        ];
+        ExecStart = "${pkgs.podman}/bin/podman start $n";
       };
     };
   };
@@ -176,9 +175,9 @@ in
     home-manager.enable = true;
     bash = {
       enable = true;
-        bashrcExtra = ''
-          source ~/.old_bashrc
-        '';
+      bashrcExtra = ''
+        source ~/.old_bashrc
+      '';
     };
     starship = {
       enable = true;
@@ -189,29 +188,29 @@ in
       enable = true;
       enableCompletion = true;
       initExtra = ''
-# export ZSH="$HOME/.oh-my-zsh"
-plugins=(git)
+        # export ZSH="$HOME/.oh-my-zsh"
+        plugins=(git)
 
-ZSH_THEME="robbyrussell"
-# source $ZSH/oh-my-zsh.sh
+        ZSH_THEME="robbyrussell"
+        # source $ZSH/oh-my-zsh.sh
 
-export EDITOR="nvim"
+        export EDITOR="nvim"
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH=$PATH:~/.config/emacs/bin/
-export PATH=$PATH:~/.local/go/bin/
-export PATH=$PATH:~/go/bin/
+        export PATH="$HOME/.local/bin:$PATH"
+        export PATH="$HOME/bin:$PATH"
+        export PATH=$PATH:~/.config/emacs/bin/
+        export PATH=$PATH:~/.local/go/bin/
+        export PATH=$PATH:~/go/bin/
 
-FZF_CTRL_T_COMMAND= eval "$(fzf --zsh)"
+        FZF_CTRL_T_COMMAND= eval "$(fzf --zsh)"
 
 
-autoload -U compinit; compinit
-source ~/.fzf-tab/fzf-tab.plugin.zsh
+        autoload -U compinit; compinit
+        source ~/.fzf-tab/fzf-tab.plugin.zsh
       '';
       shellAliases = {
-      	vim="nvim";
-      	vi="nvim";
+        vim = "nvim";
+        vi = "nvim";
       };
       oh-my-zsh.enable = true;
     };
@@ -227,8 +226,8 @@ source ~/.fzf-tab/fzf-tab.plugin.zsh
         pkgs.vimPlugins.mason-lspconfig-nvim
         pkgs.vimPlugins.nvim-cmp
         pkgs.vimPlugins.cmp-nvim-lsp
-	# TODO codecompanion is currently in unstable/beta. 
-	# 	Should add here when it goes live
+        # TODO codecompanion is currently in unstable/beta. 
+        # 	Should add here when it goes live
       ];
     };
   };

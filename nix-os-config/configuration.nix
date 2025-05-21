@@ -2,11 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib,  ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       # <home-manager/nixos>
     ];
 
@@ -61,31 +62,31 @@
   };
   services.xserver = {
     enable = true;
- 
-     desktopManager = {
-       xterm.enable = false;
-       gnome.enable = true;
-     };
- 
-     displayManager = {
-        defaultSession = "gnome";
-	gdm.enable = true;
-	startx.enable = true;
-     	# lightdm = {
-	#   enable = true;
-	#   greeter.enable = true;
-	# };
-     };
-     windowManager.i3 = {
-       enable = true;
-       package = pkgs.i3-gaps;
-       extraPackages = with pkgs; [
-         dmenu
-         i3status
-         i3lock
-         i3blocks
-       ];
-     };
+
+    desktopManager = {
+      xterm.enable = false;
+      gnome.enable = true;
+    };
+
+    displayManager = {
+      defaultSession = "gnome";
+      gdm.enable = true;
+      startx.enable = true;
+      # lightdm = {
+      #   enable = true;
+      #   greeter.enable = true;
+      # };
+    };
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        i3blocks
+      ];
+    };
   };
   services.openssh = {
     enable = true;
@@ -117,7 +118,7 @@
     hashedPassword = "$y$j9T$qD5idLei07VLmuqTUaEMA1$vka3cUOh1T8CI05G5xoUMUZ5iZUmqoXxDKqY4m0JfVC";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-    	qemu
+      qemu
     ];
   };
   users.users.fei = {
@@ -154,8 +155,8 @@
     };
     docker.enable = true;
     podman = {
-    	enable = true;
-	dockerCompat = false;
+      enable = true;
+      dockerCompat = false;
     };
     libvirtd = {
       enable = true;
@@ -163,7 +164,7 @@
         package = pkgs.qemu_kvm;
         ovmf = {
           enable = true;
-          packages = [pkgs.OVMFFull.fd];
+          packages = [ pkgs.OVMFFull.fd ];
         };
         swtpm.enable = true;
       };
@@ -174,29 +175,29 @@
     TERMINAL = "alacritty";
     EDITOR = "nvim";
   };
-  
+
   fonts.packages = with pkgs; [
     nerdfonts
     font-awesome
   ];
   environment.systemPackages = with pkgs; [
-    ((vim_configurable.override {  }).customize{
-          name = "vim";
-          vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-            start = [ nerdtree gruvbox ];
-            opt = [];
-          };
-          vimrcConfig.customRC = ''
-            " your custom vimrc
-            set nocompatible
-            set backspace=indent,eol,start
-            " Turn on syntax highlighting by default
-            syntax on
-            " ...
-          '';
-        }
+    ((vim_configurable.override { }).customize {
+      name = "vim";
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [ nerdtree gruvbox ];
+        opt = [ ];
+      };
+      vimrcConfig.customRC = ''
+        " your custom vimrc
+        set nocompatible
+        set backspace=indent,eol,start
+        " Turn on syntax highlighting by default
+        syntax on
+        " ...
+      '';
+    }
     )
-    rustc 
+    rustc
     nodejs
     home-manager
     virt-viewer

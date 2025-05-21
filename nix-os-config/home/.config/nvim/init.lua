@@ -3,6 +3,8 @@ vim.cmd [[packadd packer.nvim]]
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.clipboard = 'unnamedplus'
+
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 

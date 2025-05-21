@@ -200,6 +200,7 @@
     nodejs
     home-manager
     virt-viewer
+    nfs-utils
     bubblewrap
     pavucontrol
   ];

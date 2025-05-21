@@ -18,9 +18,9 @@
   show-footer: false,
 )
 
-= Summary
+= Professional Summary
 #resume-item[
-Supply chain professional with 9+ years of results-driven experience planning for end-to-end supply chain processes with knowledge in a variety of industry backgrounds such as food, packaging, fashion retail, and children’s licensed products. Highly motivated and top performing team leader with a proven track record excelling in business optimization,  process design and implementation, project management, account management relationships, and strategic leadership initiatives to ensure that the end-consumer will have the best service and product experience.
+Strategic supply chain leader with 9+ years of end‑to‑end planning expertise across food, packaging, fashion retail, and children’s licensed products. Highly motivated and top performing team leader with a proven track record excelling in business optimization, process design and implementation, project management, account management relationships, and strategic leadership initiatives to consistently deliver measurable impact while fostering a culture of collaboration.
 ]
 = Skills
 
@@ -28,7 +28,7 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 
 #resume-skill-item(
   "Operations",
- ("Inventory control and distribution", "Root Cause Analysis" ,"Sales and Operations Planning", "Statistical forecast and trend modeling", "Scenario planning")
+ ("Inventory control and distribution", "Procurement", "Root Cause Analysis" ,"Sales and Operations Planning", "Statistical forecast and trend modeling", "Scenario planning")
 )
 
 #resume-skill-item(
@@ -37,12 +37,24 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 )
 #resume-skill-item(
   "Collaboration",
-  ("Strategic leadership", "Client and supplier relationship management", "Growth-mindset", "Agile", "Resilient", "CPFR")
+  ("Strategic leadership", "Client and supplier relationship management", "Growth-mindset", "Agile", "Resilient", "CPFR (Collaborative Planning Forecast & Replenishment)")
 )
 
 #resume-skill-item(
   "Technical",
-  ("MS Excel", "JDE", "JDA", "Oracle Business Intelligence", "Tableau", "SQL", "Kinaxis Rapid Response", "Chinese" )
+  ("MS Excel", "JDE", "JDA", "Oracle Business Intelligence", "Power BI", "Tableau", "SQL", "Kinaxis Rapid Response", "Chinese" )
+)
+
+= Education
+
+#resume-entry(
+  title: "Northern Illiniois University",
+  location: "Dekalb, IL",
+  description: "Bachelor of Science in Economics",
+)
+#resume-entry(
+  title: "Lean Six Sigma Black Belt",
+  date: "Expected July 2025",
 )
 
 
@@ -52,15 +64,16 @@ Supply chain professional with 9+ years of results-driven experience planning fo
   title: "Senior Category Owner/Supply Planner (McDonald’s Account), HAVI",
   location: "Chicago, IL",
   date: "Mar. 2023 – Nov. 2024",
-  description: "A global firm offering integrated supply chain management solutions for quick-service restaurants, retail, and foodservice industries",
+  description: "A global firm offering integrated supply chain management solutions for foodservice industries",
 )
 
 #resume-item[
-- Supply planning lead for national promotions cross-functional teams across 3 high visibility categories driving timelines and replenishment activities to ensure deliverables are met with uniform consistency for over 13,000 restaurants
-- Used the CPFR framework to advise scenario planning recommendations to the client and cross-functional teams identifying all assumptions, risks, and opportunities in the promotions' life cycle to support optimized launch strategy while minimizing liability, achieve in-stock targets of 95%, and ensure business continuity 
+- Led end-to-end supply planning for national promotions across three highly sophisticated categories—Chicken, Beef, and Happy Meal—managing cross-functional teams to execute timelines, optimize logistics and replenishment strategies, and ensure consistent delivery to 13,000+ restaurants
+- Provided strategic leadership during critical promotion launch, fostering collaborative communication across departments and guiding adjustments to key business parameters, resulting in a service level improvement from 80% to 98%
+- Led cross-functional scenario planning using the Collaborative Planning Forecast & Replenishment framework, delivering strategic recommendations to stakeholders by assessing assumptions, risks, and opportunities throughout the promotion lifecycle—achieving 95% in-stock targets, minimizing liability, and ensuring uninterrupted supply operations
 - Accountable for building a resilient supply plan for over 8 promotions per year by leading proactive discussions for all KPI metrics including in-stock, days of supply, operational expenditure and savings, cost mitigations, liabilities, executional efficiency and accuracy
-- Established standard operational processes and methodology utilizing lean practices to improve operational efficiencies by 10%
-- Coordinated the design of a centralized dashboard to enhance cross-functional visibility across 4 echelons in order to identify insights for budget and operational planning
+- Facilitated the creation of standardized operational processes and communication model in partnership with supply managers, category leads, and key stakeholders to support an automated supply risk alert dashboard—reducing manual intervention by 15% and enhancing risk visibility
+- Coordinated the design of a centralized dashboard to enhance cross-functional visibility across 4 echelons in order to identify insights for budget allocation and operational planning decisions
 ]
 
 #resume-entry(
@@ -70,9 +83,10 @@ Supply chain professional with 9+ years of results-driven experience planning fo
   description: "First year was contracted via LaSalle Network",
 )
 #resume-item[
-- Operation lead of 5 cross-functional team members for the U.S. and Canada Happy Meal toy and packaging categories to ensure the accountability of all tasks and deliverables via weekly touch points 
-- Drove digital automation initiatives across the supply chain including restaurants, DC, HUB, suppliers, and client partners to alleviate operational pain points by 20%
-- Managed demand forecast for volatile items by critically analyzing historical trends and demand drivers
+- Operation lead of 5 cross-functional team members for the U.S. and Canada Happy Meal toy and packaging categories to ensure the accountability of all tasks and deliverables via structured weekly touch points 
+- Spearheaded cross-functional continuous improvement initiatives with key stakeholders to overhaul legacy safety stock parameters, resulting in a twofold improvement in inventory accuracy and supply resiliency
+- Championed digital automation initiatives across the supply chain including restaurants, DC, HUB, suppliers, and client partners to eliminate key pain points and improving operational efficiency by 20%
+- Managed demand forecast for high-volatility import SKUs by critically analyzing historical trends and economic indicators to safeguard service-level performance amid trade uncertainty
 - Solutioned for limited stock and complex promotional turns by utilizing specialized planning software to optimize outcomes
 ]
 
@@ -106,15 +120,3 @@ Supply chain professional with 9+ years of results-driven experience planning fo
 - Adhered to tight timelines for on-time execution of seasonal product launches by planning for lead-time and type of  supply flow
 ]
 
-= Education
-
-#resume-entry(
-  title: "Northern Illiniois University",
-  location: "Dekalb, IL",
-  date: "May 2014",
-  description: "Bachelor of Science in Economics",
-)
-#resume-entry(
-  title: "Lean Six Sigma Black Belt",
-  date: "Expected July 2025",
-)

@@ -183,6 +183,7 @@ in
     starship = {
       enable = true;
       enableZshIntegration = true;
+      enableBashIntegration = false;
     };
     zsh = {
       enable = true;

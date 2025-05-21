@@ -7,7 +7,6 @@ export PATH=$PATH:~/.config/emacs/bin/
 export PATH="$HOME/.local/go/bin::$PATH"
 
 FZF_CTRL_T_COMMAND= eval "$(fzf --bash)"
-eval "$(starship init bash)"
 
 alias rm='rm -i'
 alias ls='eza'

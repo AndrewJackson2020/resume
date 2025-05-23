@@ -1,0 +1,21 @@
+[postgres]
+
+  [[postgres.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/postgres.git"
+  
+  [[postgres.remote]]
+  name = "upstream"
+  url = "https://github.com/postgres/postgres.git"
+
+  [[postgres.worktree]]
+  name = "ldap_fix"
+  ref = "ldap_fix"
+
+  [[postgres.worktree]]
+  name = "ldap_tests"
+  ref = "ldap_tests"
+
+  [[postgres.worktree]]
+  name = "master"
+  ref = "master"

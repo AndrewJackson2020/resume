@@ -78,22 +78,39 @@
         ];
       };
       apps.x86_64-linux = {
+	git_workspace = 
+	let 
+	  git_workspace_app = import ./submodules/git-workspace.nix { };
+          git_workspace = pkgs.writeShellApplication {
+            name = "git_workspace";
+            runtimeInputs = [ 
+	      pkgs.python3
+              pkgs.python3Packages.click
+	    ];
+            text = ''
+
+	    ${git_workspace_app}/bin/git-workspace.py "$@"
+            '';
+	  };
+        in
+        {
+          type = "app";
+          program = "${git_workspace}/bin/git_workspace";
+        };
         resume =
           let
-
             typst = import ./typst.nix { };
-            compile_resume = pkgs.writeShellApplication {
-              name = "compile_resume";
+            typst_wrapper = pkgs.writeShellApplication {
+              name = "typst_wrapper";
               runtimeInputs = [ typst ];
               text = ''
-                # Serve the current directory on port 8090
-                ${typst}/typst compile ./resume/resume.typ
+	      ${typst}/typst "$@"
               '';
             };
           in
           {
             type = "app";
-            program = "${compile_resume}/bin/compile_resume";
+            program = "${typst_wrapper}/bin/typst_wrapper";
           };
       };
       packages.x86_64-linux = {

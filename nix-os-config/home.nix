@@ -125,7 +125,6 @@ in
       rustc
       ntfs3g
       stow
-      ollama-cuda
       tealdeer
       tmux
       tree

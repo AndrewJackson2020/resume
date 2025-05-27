@@ -177,7 +177,6 @@
   };
 
   fonts.packages = with pkgs; [
-    nerdfonts
     font-awesome
   ];
   environment.systemPackages = with pkgs; [

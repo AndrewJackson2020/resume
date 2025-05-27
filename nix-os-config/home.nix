@@ -111,7 +111,6 @@ in
       linuxKernel.packages.linux_zen.perf
       postgresql_16
       procs
-      protobuf_23
       protobufc
       python3
       qbittorrent

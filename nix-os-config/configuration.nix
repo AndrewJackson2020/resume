@@ -177,6 +177,7 @@
   };
 
   fonts.packages = with pkgs; [
+    nerd-fonts.sauce-code-pro
     font-awesome
   ];
   environment.systemPackages = with pkgs; [

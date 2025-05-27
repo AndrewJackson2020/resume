@@ -32,9 +32,9 @@ sudo ./install.sh
 home-manager switch --flake ./
 ```
 
-## Initial Install command for new machines
+## Build resume
 ```bash
-nix run .#resume --impure
+nix run .#resume --impure -- compile ./resume/andrew_resume.typ
 ```
 
 ## Format nix files

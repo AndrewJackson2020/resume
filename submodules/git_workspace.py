@@ -16,6 +16,11 @@ def _remove_git_remote(git_remote: str, repo_name: str) -> None:
             ["git", "remote", "remove", git_remote], 
             stdout=subprocess.PIPE, cwd=repo_name, check=True)
 
+def _git_checkout(repo_name: str, branch_name: str) -> None:
+    p = subprocess.run(
+            ["git", "checkout", branch_name], 
+            stdout=subprocess.PIPE, cwd=repo_name + "/" + branch_name, check=True)
+
 def _add_checkout_null(repo_name: str) -> None:
     subprocess.run("git checkout $(git commit-tree $(git hash-object -t tree /dev/null) < /dev/null)", shell=True, cwd=repo_name, check=True)
 
@@ -109,7 +114,6 @@ def apply():
             if actual_worktree_path in expected_worktree_paths:
                continue 
 
-            breakpoint()
             _remove_git_worktree(repo_name=repo_name, worktree=actual_worktree_path)
 
         for expected_worktree in repo_attributes["worktree"]:
@@ -117,8 +121,12 @@ def apply():
                 pass
             _add_git_worktree(repo_name=repo_name, directory=expected_worktree["name"], branch=expected_worktree["ref"])
 
-        # TODO Make sure worktrees point to same remote
+        for expected_worktree in repo_attributes["worktree"]:
+            if expected_worktree["ref"] == actual_worktrees[str(pathlib.Path.cwd() / repo_name / expected_worktree["name"])]:
+                continue
+            _git_checkout(repo_name=repo_name, worktree_name=expected_worktree["name"], worktree_ref=expected_worktree["ref"])
 
+            
 
 @main.command('freeze')
 def freeze():

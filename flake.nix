@@ -80,7 +80,7 @@
       apps.x86_64-linux = {
 	git_workspace = 
 	let 
-	  git_workspace_app = import ./submodules/git-workspace.nix { };
+	  git_workspace_app = import ./submodules/git_workspace.nix { };
           git_workspace = pkgs.writeShellApplication {
             name = "git_workspace";
             runtimeInputs = [ 
@@ -88,8 +88,7 @@
               pkgs.python3Packages.click
 	    ];
             text = ''
-
-	    ${git_workspace_app}/bin/git-workspace.py "$@"
+	    ${git_workspace_app}/bin/git_workspace.py "$@"
             '';
 	  };
         in

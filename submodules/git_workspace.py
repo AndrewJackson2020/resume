@@ -16,10 +16,24 @@ def _remove_git_remote(git_remote: str, repo_name: str) -> None:
             ["git", "remote", "remove", git_remote], 
             stdout=subprocess.PIPE, cwd=repo_name, check=True)
 
+def _add_checkout_null(repo_name: str) -> None:
+    subprocess.run("git checkout $(git commit-tree $(git hash-object -t tree /dev/null) < /dev/null)", shell=True, cwd=repo_name, check=True)
 
 def _add_git_remote(repo_name: str, name: str, url: str) -> None:
     p = subprocess.run(
             ["git", "remote", "add", name, url],
+            cwd=repo_name, check=True)
+
+
+def _remove_git_worktree(repo_name: str, worktree: str) -> None:
+    p = subprocess.run(
+            ["git", "worktree", "remove", worktree],
+            cwd=repo_name, check=True)
+
+
+def _add_git_worktree(repo_name: str, directory: str, branch: str) -> None:
+    p = subprocess.run(
+            ["git", "worktree", "add", directory, branch],
             cwd=repo_name, check=True)
 
 
@@ -87,16 +101,23 @@ def apply():
 
         _git_fetch(repo_name=repo_name)
 
-        actual_worktrees = _git_worktree_list(repo_name=repo_name)
+        _add_checkout_null(repo_name=repo_name)
 
-        # TODO Add worktrees if in config
-        breakpoint()
+        actual_worktrees = _git_worktree_list(repo_name=repo_name)
+        expected_worktree_paths = [i["name"] for i in repo_attributes["worktree"]]
         for actual_worktree_path, actual_worktree_branch in actual_worktrees.items():
-            if actual_worktree_path in [i["name"] for i in repo_attributes["worktree"]]:
+            if actual_worktree_path in expected_worktree_paths:
                continue 
 
+            breakpoint()
+            _remove_git_worktree(repo_name=repo_name, worktree=actual_worktree_path)
 
-        print(repo_name, repo_attributes)
+        for expected_worktree in repo_attributes["worktree"]:
+            if expected_worktree["name"] in actual_worktrees.keys():
+                pass
+            _add_git_worktree(repo_name=repo_name, directory=expected_worktree["name"], branch=expected_worktree["ref"])
+
+        # TODO Make sure worktrees point to same remote
 
 
 @main.command('freeze')

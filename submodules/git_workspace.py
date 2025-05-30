@@ -121,6 +121,7 @@ def apply():
                 pass
             _add_git_worktree(repo_name=repo_name, directory=expected_worktree["name"], branch=expected_worktree["ref"])
 
+        actual_worktrees = _git_worktree_list(repo_name=repo_name)
         for expected_worktree in repo_attributes["worktree"]:
             if expected_worktree["ref"] == actual_worktrees[str(pathlib.Path.cwd() / repo_name / expected_worktree["name"])]:
                 continue

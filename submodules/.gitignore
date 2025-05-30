@@ -1,2 +1,13 @@
-postgres
+asyncpg
+connector-x
+libusual
+linux
+odyssey
 pgbouncer
+pgcat
+postgres
+psycopg
+r2d2-postgres
+rust-postgres
+sqlalchemy
+timescaledb

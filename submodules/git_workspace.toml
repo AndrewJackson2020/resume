@@ -58,3 +58,128 @@
   [[pgbouncer.worktree]]
   name = "listen_port_list"
   ref = "listen_port_list"
+
+[connector-x]
+
+  [[connector-x.remote]]
+  name = "origin"
+  url = "https://github.com/sfu-db/connector-x.git"
+
+  [[connector-x.worktree]]
+  name = "main"
+  ref = "main"
+
+[asyncpg]
+
+  [[asyncpg.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/asyncpg.git"
+
+  [[asyncpg.worktree]]
+  name = "master"
+  ref = "master"
+
+[libusual]
+
+  [[libusual.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/libusual.git"
+
+  [[libusual.worktree]]
+  name = "master"
+  ref = "master"
+
+
+[odyssey]
+
+  [[odyssey.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/odyssey.git"
+
+  [[odyssey.worktree]]
+  name = "master"
+  ref = "master"
+
+[pgcat]
+
+  [[pgcat.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/pgcat.git"
+
+  [[pgcat.remote]]
+  name = "pgml"
+  url = "https://github.com/postgresml/pgcat.git"
+
+  [[pgcat.worktree]]
+  name = "main"
+  ref = "main"
+
+[psycopg]
+
+  [[psycopg.remote]]
+  name = "origin"
+  url = "https://github.com/psycopg/psycopg.git"
+
+  [[psycopg.worktree]]
+  name = "master"
+  ref = "master"
+
+[r2d2-postgres]
+
+  [[r2d2-postgres.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/r2d2-postgres.git"
+
+  [[r2d2-postgres.worktree]]
+  name = "master"
+  ref = "master"
+
+[rust-postgres]
+
+  [[rust-postgres.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/rust-postgres.git"
+
+  [[rust-postgres.worktree]]
+  name = "master"
+  ref = "master"
+
+[sqlalchemy]
+
+  [[sqlalchemy.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/sqlalchemy.git"
+
+  [[sqlalchemy.remote]]
+  name = "upsteam"
+  url = "https://github.com/sqlalchemy/sqlalchemy.git"
+
+  [[sqlalchemy.worktree]]
+  name = "main"
+  ref = "main"
+
+[timescaledb]
+
+  [[timescaledb.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/timescaledb.git"
+
+  [[timescaledb.remote]]
+  name = "upsteam"
+  url = "https://github.com/timescale/timescaledb.git"
+
+  [[timescaledb.worktree]]
+  name = "main"
+  ref = "main"
+
+
+[linux]
+
+  [[linux.remote]]
+  name = "origin"
+  url = "https://github.com/torvalds/linux.git"
+
+  [[linux.worktree]]
+  name = "master"
+  ref = "master"
+

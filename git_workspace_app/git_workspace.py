@@ -31,27 +31,27 @@ def _add_checkout_null(repo_name: str) -> None:
     subprocess.run("git checkout $(git commit-tree $(git hash-object -t tree /dev/null) < /dev/null)", shell=True, cwd=repo_name, check=True)
 
 def _add_git_remote(repo_name: str, name: str, url: str) -> None:
-    p = subprocess.run(
+    _ = subprocess.run(
             ["git", "remote", "add", name, url],
-            cwd=repo_name, check=True)
+            stdout=subprocess.DEVNULL, cwd=repo_name, check=True)
 
 
 def _remove_git_worktree(repo_name: str, worktree: str) -> None:
-    p = subprocess.run(
+    _ = subprocess.run(
             ["git", "worktree", "remove", worktree],
-            cwd=repo_name, check=True)
+            stdout=subprocess.DEVNULL, cwd=repo_name, check=True)
 
 
 def _add_git_worktree(repo_name: str, directory: str, branch: str) -> None:
     _ = subprocess.run(
             ["git", "worktree", "add", directory, branch],
-            cwd=repo_name, check=True)
+            stdout=subprocess.DEVNULL, cwd=repo_name, check=True)
 
 
 def _git_fetch(repo_name: str) -> None:
     _ = subprocess.run(
-            ["git", "fetch", "-a"],
-            cwd=repo_name, check=True)
+            ["git", "fetch", "-a", "--depth=1"],
+            stdout=subprocess.DEVNULL, cwd=repo_name, check=True)
 
 
 # TODO Convert to use specified type

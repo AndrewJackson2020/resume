@@ -158,7 +158,7 @@ def freeze():
         for worktree, ref in worktrees.items():
             repos[folder_str]["worktree"].append({"name": worktree.split("/")[-1], "ref": ref})
 
-    toml_string = toml.dumps(repos)  # Output to a string
+    toml_string = toml.dumps(repos)
     click.echo(toml_string)
 
 

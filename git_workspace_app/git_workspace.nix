@@ -5,6 +5,7 @@ pkgs.python3Packages.buildPythonApplication {
   version = "0.1.0";
   propagatedBuildInputs = with pkgs.python3Packages; [
     click
+    toml
   ];
   src = ./.;
 }

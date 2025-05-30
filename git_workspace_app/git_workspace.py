@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import click
+import toml
 import tomllib
 import pathlib
 import subprocess
@@ -11,13 +12,18 @@ def _get_git_remotes(repo_name: str) -> list:
     return p.stdout.decode().strip().split("\n")
 
 
+def _get_git_remote_url(repo_name: str, remote_name: str) -> str:
+    p = subprocess.run(["git", "remote", "get-url", remote_name], stdout=subprocess.PIPE, cwd=repo_name, check=True)
+    return p.stdout.decode().strip()
+
+
 def _remove_git_remote(git_remote: str, repo_name: str) -> None:
-    p = subprocess.run(
+    _ = subprocess.run(
             ["git", "remote", "remove", git_remote], 
             stdout=subprocess.PIPE, cwd=repo_name, check=True)
 
 def _git_checkout(repo_name: str, branch_name: str) -> None:
-    p = subprocess.run(
+    _ = subprocess.run(
             ["git", "checkout", branch_name], 
             stdout=subprocess.PIPE, cwd=repo_name + "/" + branch_name, check=True)
 
@@ -37,17 +43,18 @@ def _remove_git_worktree(repo_name: str, worktree: str) -> None:
 
 
 def _add_git_worktree(repo_name: str, directory: str, branch: str) -> None:
-    p = subprocess.run(
+    _ = subprocess.run(
             ["git", "worktree", "add", directory, branch],
             cwd=repo_name, check=True)
 
 
 def _git_fetch(repo_name: str) -> None:
-    p = subprocess.run(
+    _ = subprocess.run(
             ["git", "fetch", "-a"],
             cwd=repo_name, check=True)
 
 
+# TODO Convert to use specified type
 def _git_worktree_list(repo_name: str) -> dict:
 
     p = subprocess.run(
@@ -134,6 +141,25 @@ def freeze():
     """
     TODO write function that saves state of current repos and workspaces
     """
+    folders = [i for i in pathlib.Path(".").glob("*") if i.is_dir()]
+    repos = {}
+    for folder in folders:
+        folder_str = str(folder)
+        if not (folder / ".git").exists():
+            continue
+
+        repos[folder_str] = {"remote": [], "worktree": []}
+
+        remotes = _get_git_remotes(repo_name=folder_str)
+        for remote in remotes:
+            repos[folder_str]["remote"].append({"name": remote, "url": _get_git_remote_url(repo_name=folder_str, remote_name=remote)})
+
+        worktrees = _git_worktree_list(repo_name=folder_str)
+        for worktree, ref in worktrees.items():
+            repos[folder_str]["worktree"].append({"name": worktree.split("/")[-1], "ref": ref})
+
+    toml_string = toml.dumps(repos)  # Output to a string
+    click.echo(toml_string)
 
 
 if __name__ == '__main__':

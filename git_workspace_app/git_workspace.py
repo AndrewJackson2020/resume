@@ -138,9 +138,6 @@ def apply():
 
 @main.command('freeze')
 def freeze():
-    """
-    TODO write function that saves state of current repos and workspaces
-    """
     folders = [i for i in pathlib.Path(".").glob("*") if i.is_dir()]
     repos = {}
     for folder in folders:

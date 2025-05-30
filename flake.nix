@@ -18,6 +18,10 @@
 
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      devShells.x86_64-linux = {
+      	pgbouncer = import ./submodules/pgbouncer_shell.nix { inherit pkgs; };
+      	postgres = import ./submodules/postgres_shell.nix { inherit pkgs; };
+      };
       nixosConfigurations = {
         nixos-desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

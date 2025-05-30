@@ -9,6 +9,14 @@
   url = "https://github.com/postgres/postgres.git"
 
   [[postgres.worktree]]
+  name = "ldap_service"
+  ref = "ldap_service"
+
+  [[postgres.worktree]]
+  name = "check_all_addrs"
+  ref = "check_all_addrs"
+
+  [[postgres.worktree]]
   name = "ldap_fix"
   ref = "ldap_fix"
 
@@ -19,3 +27,34 @@
   [[postgres.worktree]]
   name = "master"
   ref = "master"
+
+  [[postgres.worktree]]
+  name = "remote_service"
+  ref = "remote_service"
+
+
+[pgbouncer]
+
+  [[pgbouncer.remote]]
+  name = "origin"
+  url = "https://github.com/AndrewJackson2020/pgbouncer.git"
+  
+  [[pgbouncer.remote]]
+  name = "upstream"
+  url = "https://github.com/pgbouncer/pgbouncer.git"
+
+  [[pgbouncer.worktree]]
+  name = "master"
+  ref = "master"
+
+  [[pgbouncer.worktree]]
+  name = "gss"
+  ref = "gss"
+
+  [[pgbouncer.worktree]]
+  name = "pam_update"
+  ref = "pam_update"
+
+  [[pgbouncer.worktree]]
+  name = "listen_port_list"
+  ref = "listen_port_list"

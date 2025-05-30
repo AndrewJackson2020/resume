@@ -80,7 +80,7 @@
       apps.x86_64-linux = {
 	git_workspace = 
 	let 
-	  git_workspace_app = import ./submodules/git_workspace.nix { };
+	  git_workspace_app = import ./git_workspace_app/git_workspace.nix { };
           git_workspace = pkgs.writeShellApplication {
             name = "git_workspace";
             runtimeInputs = [ 

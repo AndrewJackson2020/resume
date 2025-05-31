@@ -19,8 +19,7 @@
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
       devShells.x86_64-linux = {
-      	pgbouncer = import ./submodules/pgbouncer_shell.nix { inherit pkgs; };
-      	postgres = import ./submodules/postgres_shell.nix { inherit pkgs; };
+        submodules = import ./submodules/default.nix { inherit pkgs; };
       };
       nixosConfigurations = {
         nixos-desktop = nixpkgs.lib.nixosSystem {
@@ -82,24 +81,24 @@
         ];
       };
       apps.x86_64-linux = {
-	git_workspace = 
-	let 
-	  git_workspace_app = import ./git_workspace_app/git_workspace.nix { };
-          git_workspace = pkgs.writeShellApplication {
-            name = "git_workspace";
-            runtimeInputs = [ 
-	      pkgs.python3
-              pkgs.python3Packages.click
-	    ];
-            text = ''
-	    ${git_workspace_app}/bin/git_workspace.py "$@"
-            '';
-	  };
-        in
-        {
-          type = "app";
-          program = "${git_workspace}/bin/git_workspace";
-        };
+        git_workspace =
+          let
+            git_workspace_app = import ./git_workspace_app/git_workspace.nix { };
+            git_workspace = pkgs.writeShellApplication {
+              name = "git_workspace";
+              runtimeInputs = [
+                pkgs.python3
+                pkgs.python3Packages.click
+              ];
+              text = ''
+                	    ${git_workspace_app}/bin/git_workspace.py "$@"
+              '';
+            };
+          in
+          {
+            type = "app";
+            program = "${git_workspace}/bin/git_workspace";
+          };
         resume =
           let
             typst = import ./typst.nix { };
@@ -107,7 +106,7 @@
               name = "typst_wrapper";
               runtimeInputs = [ typst ];
               text = ''
-	      ${typst}/typst "$@"
+                	      ${typst}/typst "$@"
               '';
             };
           in

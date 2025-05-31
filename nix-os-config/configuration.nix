@@ -204,7 +204,7 @@
     nfs-utils
     bubblewrap
     pavucontrol
-    man-pages 
+    man-pages
     man-pages-posix
   ];
   documentation.dev.enable = true;
